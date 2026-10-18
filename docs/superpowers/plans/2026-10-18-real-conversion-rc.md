@@ -11,3 +11,7 @@ Execute autonomously in this session. Use systematic-debugging/TDD only for repr
 - [ ] Audit source/history secrets, licenses, author identity, links and public inventory. Generate PUBLICATION_READINESS.md and FINAL_REPORT.md; freeze local candidate, verified source ZIP and Git Bundle; record final SHA outside self-referential artifacts and stop feature development.
 
 Only actual commands with successful observed results are PASS. Missing execution is NOT RUN. Preserve failures and distinguish observed conversion from uncertain cause/intent. Windows RAM quota remains a disclosed limitation.
+
+## Execution checkpoint
+
+Original backup, actual signed Calc inventory/campaign, fixed protocol criteria, reproduced header defect with RED/GREEN regression, independent runtime review, documentation, fresh Windows/Linux 79-test runs, actual browser checks and source/license/privacy scan are complete. The default Calc profile returned formula interpretation enabled; all supplied data was formula-free and macros disabled. This protocol exception is disclosed in REAL_CONVERSION_RESULTS.md rather than falsely claiming the default disabled formulas. Optional replay runner also executed a normal control. Final archive/restoration/clean status gate will be recorded in the external DELIVERY.json after the local freeze commit; do not infer it solely from this checklist.

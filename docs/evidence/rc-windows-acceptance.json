@@ -1,0 +1,601 @@
+{
+  "status": "PASS",
+  "tests": 79,
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cli_exits": [
+    0,
+    2,
+    1
+  ],
+  "unicode": "PASS",
+  "hash_and_coordinates": "PASS",
+  "reports": [
+    {
+      "case": "strict-loss",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 7,
+        "SUSPECTED_CONVERSION": 2,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "findings": [
+        {
+          "verdict": "SUSPECTED_CONVERSION",
+          "code": "LEADING_ZERO_REMOVED",
+          "message": "Pattern consistent with numeric conversion; cause unproven",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": "00123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "DECIMAL_REPRESENTATION_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": "00123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "DECIMAL_REPRESENTATION_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "amount",
+            "column_index": 3,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": "1.2300",
+              "kind": "text",
+              "coordinate": "C2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "amount",
+            "column_index": 3,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "1.23",
+              "kind": "text",
+              "coordinate": "C2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "WHITESPACE_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "note",
+            "column_index": 4,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": " 中文 ",
+              "kind": "text",
+              "coordinate": "D2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "note",
+            "column_index": 4,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "中文",
+              "kind": "text",
+              "coordinate": "D2"
+            }
+          }
+        },
+        {
+          "verdict": "SUSPECTED_CONVERSION",
+          "code": "POSSIBLE_DATE_CONVERSION",
+          "message": "Changed date-shaped text without a confirmed date interpretation",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "when",
+            "column_index": 5,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": "2026-10-18",
+              "kind": "text",
+              "coordinate": "E2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "when",
+            "column_index": 5,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "18/10/2026",
+              "kind": "text",
+              "coordinate": "E2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "VALUE_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "when",
+            "column_index": 5,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123,1.2300,\" 中文 \",2026-10-18\n"
+            },
+            "cell": {
+              "raw": "2026-10-18",
+              "kind": "text",
+              "coordinate": "E2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "when",
+            "column_index": 5,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a\t123\t1.23\t中文\t18/10/2026\n"
+            },
+            "cell": {
+              "raw": "18/10/2026",
+              "kind": "text",
+              "coordinate": "E2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "LONG_NUMBER_PRECISION_CHANGE",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 3,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,12345678901234567,0.10000000000000001,café,2026-10-19\n"
+            },
+            "cell": {
+              "raw": "12345678901234567",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          },
+          "after": {
+            "row": 3,
+            "column": "identifier",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b\t12345678901234568\t0.1\tcafé\t2026-10-19\n"
+            },
+            "cell": {
+              "raw": "12345678901234568",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "LONG_NUMBER_PRECISION_CHANGE",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 3,
+            "column": "amount",
+            "column_index": 3,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,12345678901234567,0.10000000000000001,café,2026-10-19\n"
+            },
+            "cell": {
+              "raw": "0.10000000000000001",
+              "kind": "text",
+              "coordinate": "C3"
+            }
+          },
+          "after": {
+            "row": 3,
+            "column": "amount",
+            "column_index": 3,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b\t12345678901234568\t0.1\tcafé\t2026-10-19\n"
+            },
+            "cell": {
+              "raw": "0.1",
+              "kind": "text",
+              "coordinate": "C3"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "UNICODE_TEXT_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 3,
+            "column": "note",
+            "column_index": 4,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,12345678901234567,0.10000000000000001,café,2026-10-19\n"
+            },
+            "cell": {
+              "raw": "café",
+              "kind": "text",
+              "coordinate": "D3"
+            }
+          },
+          "after": {
+            "row": 3,
+            "column": "note",
+            "column_index": 4,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b\t12345678901234568\t0.1\tcafé\t2026-10-19\n"
+            },
+            "cell": {
+              "raw": "café",
+              "kind": "text",
+              "coordinate": "D3"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "same",
+      "verdict": "EQUIVALENT",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "findings": []
+    },
+    {
+      "case": "sqlite-actual",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 2,
+        "SUSPECTED_CONVERSION": 2,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "findings": [
+        {
+          "verdict": "SUSPECTED_CONVERSION",
+          "code": "LEADING_ZERO_REMOVED",
+          "message": "Pattern consistent with numeric conversion; cause unproven",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123\n"
+            },
+            "cell": {
+              "raw": "00123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,123.0\n"
+            },
+            "cell": {
+              "raw": "123.0",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "DECIMAL_REPRESENTATION_CHANGED",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,00123\n"
+            },
+            "cell": {
+              "raw": "00123",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 2,
+              "line_end": 2,
+              "raw_record": "a,123.0\n"
+            },
+            "cell": {
+              "raw": "123.0",
+              "kind": "text",
+              "coordinate": "B2"
+            }
+          }
+        },
+        {
+          "verdict": "SUSPECTED_CONVERSION",
+          "code": "SCIENTIFIC_NOTATION_CHANGE",
+          "message": "Scientific notation representation changed; cause unproven",
+          "table": "data",
+          "before": {
+            "row": 3,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,12345678901234567\n"
+            },
+            "cell": {
+              "raw": "12345678901234567",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          },
+          "after": {
+            "row": 3,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,1.2345678901234568e+16\n"
+            },
+            "cell": {
+              "raw": "1.2345678901234568e+16",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          }
+        },
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "LONG_NUMBER_PRECISION_CHANGE",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "data",
+          "before": {
+            "row": 3,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,12345678901234567\n"
+            },
+            "cell": {
+              "raw": "12345678901234567",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          },
+          "after": {
+            "row": 3,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "data",
+            "source": {
+              "line_start": 3,
+              "line_end": 3,
+              "raw_record": "b,1.2345678901234568e+16\n"
+            },
+            "cell": {
+              "raw": "1.2345678901234568e+16",
+              "kind": "text",
+              "coordinate": "B3"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "xlsx-long-number",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 1,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "findings": [
+        {
+          "verdict": "CONFIRMED_LOSS",
+          "code": "LONG_NUMBER_PRECISION_CHANGE",
+          "message": "Observed representation/type/value changed under selected rules; no application attribution",
+          "table": "Data",
+          "before": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "Data",
+            "source": {
+              "sheet": "Data",
+              "row": 2,
+              "explicit": true
+            },
+            "cell": {
+              "raw": "12345678901234567",
+              "kind": "number",
+              "coordinate": "B2",
+              "format": "General",
+              "style_index": 0,
+              "stored": "12345678901234567"
+            }
+          },
+          "after": {
+            "row": 2,
+            "column": "value",
+            "column_index": 2,
+            "sheet": "Data",
+            "source": {
+              "sheet": "Data",
+              "row": 2,
+              "explicit": true
+            },
+            "cell": {
+              "raw": "12345678901234568",
+              "kind": "number",
+              "coordinate": "B2",
+              "format": "General",
+              "style_index": 0,
+              "stored": "12345678901234568"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Controlled files, actual installed CLI and real SQLite typed import/export; not a validated office application workflow"
+}

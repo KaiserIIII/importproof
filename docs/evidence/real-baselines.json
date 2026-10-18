@@ -1,0 +1,57 @@
+{
+  "csv_diff": {
+    "version": "1.2",
+    "commit": "26903b74eefcd65be761810f51b0e55c033bde66"
+  },
+  "daff": {
+    "version": "1.4.2",
+    "commit": "6dbb7510b097369ac33b9126a88881f067f07a20"
+  },
+  "sqlite": "3.45.3",
+  "actual_diff_invocations": 15,
+  "sqlite_constraint_runs": 5,
+  "cases": [
+    {
+      "case": "risk-default",
+      "csv_diff_changed_rows": 3,
+      "daff_raw_exit": 1,
+      "daff_bom_normalized_exit": 1,
+      "sqlite_different_original_rows": 3,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "case": "risk-text",
+      "csv_diff_changed_rows": 0,
+      "daff_raw_exit": 1,
+      "daff_bom_normalized_exit": 0,
+      "sqlite_different_original_rows": 3,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "case": "risk-special",
+      "csv_diff_changed_rows": 3,
+      "daff_raw_exit": 1,
+      "daff_bom_normalized_exit": 1,
+      "sqlite_different_original_rows": 3,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "case": "control-default",
+      "csv_diff_changed_rows": 0,
+      "daff_raw_exit": 1,
+      "daff_bom_normalized_exit": 0,
+      "sqlite_different_original_rows": 0,
+      "sqlite_integrity": "ok"
+    },
+    {
+      "case": "control-text",
+      "csv_diff_changed_rows": 0,
+      "daff_raw_exit": 1,
+      "daff_bom_normalized_exit": 0,
+      "sqlite_different_original_rows": 0,
+      "sqlite_integrity": "ok"
+    }
+  ],
+  "normalization": "csv-diff files decoded explicitly utf-8-sig; daff raw originals and separate BOM-removed source copies both retained",
+  "sql_scope": "A small explicit TEXT/PRIMARY KEY and EXCEPT-query baseline using SQLite, not a turnkey migration validation product; QUOTE_NOTNULL source parsing maps blank to SQL NULL and quoted empty to empty text"
+}

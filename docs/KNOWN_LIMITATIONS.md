@@ -8,6 +8,8 @@
 - Missing cells, blank cells, quoted empty strings and user-declared null tokens differ. A workbook that omits empty cells may yieldUNKNOWN. Identifier changes cannot be repaired or attributed to a particular application.
 - Reports contain raw original values and physical CSV record evidence. They can expose sensitive data if shared. Hashes show byte identity only. JSON is the canonical full report; guarded CSV is a findings index and may prefix dangerous scalars to inhibit formula injection.
 - LocalHTTP is one request at a time; backlog4, sockettimeout10s, body15MiB,response24MiB. It checks exact127.0.0.1 Host/Origin/sessiontoken, not a hostile public-service authentication system. A local process/user can still access their own session. Do not bind or proxy publicly.
-- Controlled synthetic pairs and the actual SQLite REAL import are not representative production benchmarks. Excel/LibreOffice import/export GUI, real production data, Linux browser and macOS remainNOT RUN unless explicitly stated in acceptance. No precision/recall or market adoption claim.
+- Controlled synthetic pairs and the actual SQLite REAL import are not representative production benchmarks. Real Calc headless import/export has run on one Windows build; interactive Office GUI, Excel conversion, production data, native Linux browser and macOS remain NOT RUN. No precision/recall or market adoption claim.
 
 Output caps are checked after JSON serialization and HTML/export rendering; they bound delivery size, not peak allocations. The HTTP socket timeout is an inactivity timeout, not a whole-request wall-clock deadline. The worker deadline applies to comparison processing.
+
+Actual LibreOffice 26.2.5.2 XLSX exports, including normal fully populated text controls, return UNKNOWN from unsupported workbook/sheet/row metadata. Do not advertise broad ordinary-XLSX equivalence. CSV controls passed and observed loss evidence is retained; see ../REAL_CONVERSION_RESULTS.md.

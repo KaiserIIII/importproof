@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "tested_commit": "296e0bf8d19ef65bdc288d948fbfb934aa3c0dbd",
+  "controlled_cli_reports_equal": 4,
+  "real_calc_reports_equal": 10,
+  "real_calc_reports": [
+    {
+      "case": "risk-default",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "947d828f12f7895b1704379eab88791a19037d4045d673683088bbc4c46c40d8"
+    },
+    {
+      "case": "risk-default",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "0b624bd7afbd2570039f112e95cdbdd4da71ed1aba6972284f76fb81b0127c6c"
+    },
+    {
+      "case": "risk-text",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "5aa7b6404a04cccddc493481c42b763fb6268b7694430027fd7f3797233f1496"
+    },
+    {
+      "case": "risk-text",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "e9fd1a8570db6cf163841c42037ec0019a7f0bed0dee386663a1cf009cfbe2cf"
+    },
+    {
+      "case": "risk-special",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "e699b35fd9b01a0d7f2e6212fedff2b848ccbedeb4f11c46ca9d2d8311517e77"
+    },
+    {
+      "case": "risk-special",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "142b06bc574ae475bb04397f5b8385b44e46cfdf710bcf65bf3501fe158f5d5a"
+    },
+    {
+      "case": "control-default",
+      "format": "csv",
+      "verdict": "EQUIVALENT",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "8581b526c42614fd2edff4afa9bcd7f8eabeaf1b81e1709313081e9f56c1118a"
+    },
+    {
+      "case": "control-default",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "aaf9221deb4a59701cf98eaa77aa4837e6a94ae573653fe1921ec4ee3eea905f"
+    },
+    {
+      "case": "control-text",
+      "format": "csv",
+      "verdict": "EQUIVALENT",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "8581b526c42614fd2edff4afa9bcd7f8eabeaf1b81e1709313081e9f56c1118a"
+    },
+    {
+      "case": "control-text",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "exact_saved_report_match": true,
+      "canonical_sha256": "ba3b52863757b5fb0b458a77cba294eb76b2b1d49df55ba08343c32409500ea1"
+    }
+  ],
+  "resource_cases_consistent": 10
+}

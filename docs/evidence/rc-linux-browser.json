@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "server_platform": "linux",
+  "client": "Windows Chromium 149.0.7827.55",
+  "checks": 6,
+  "steps": [
+    "real Calc default CSV uploaded and exact long-number evidence shown",
+    "risk filtering",
+    "three real browser exports and JSON evidence verified",
+    "actual normal Calc CSV control equivalent",
+    "formula-like header UNKNOWN and literal HTML evidence inert in UI/standalone export",
+    "actual 5 MiB + 1 byte HTTP file rejected"
+  ],
+  "page_errors": [],
+  "external_requests": [],
+  "scope": "Actual installed server and browser, not interactive office GUI; Linux server accessed through WSL loopback forwarding"
+}

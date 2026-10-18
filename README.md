@@ -8,7 +8,9 @@ ImportProof is a local CSV, TSV and XLSX import-fidelity review tool for Windows
 
 ![Actual local browser report](docs/images/browser-actual.png)
 
-Source release 0.1.0: **77 tests passed on each of fresh Windows and isolated Linux environments**, plus real Windows Chromium upload/filter/export acceptance. [Executed scope and NOT RUN items](docs/ACCEPTANCE.md).
+Source candidate 0.1.0: **79 tests passed in each fresh Windows and isolated Linux environment**. Real LibreOffice 26.2.5.2 imports/exports and browser checks against both platform servers were executed. [Executed scope and NOT RUN items](PUBLICATION_READINESS.md).
+
+**Experimental scope: ordinary real Calc XLSX files, including an unchanged text control, can return UNKNOWN due unsupported metadata. Normal CSV controls passed.** [Real conversion results](REAL_CONVERSION_RESULTS.md) · [Readiness and remaining limits](PUBLICATION_READINESS.md).
 
 ## Install and run
 
@@ -104,7 +106,7 @@ python tools/verify.py output-acceptance
 python tools/resource_checks.py output-resources
 ```
 
-Examples are explicitly controlled, nonprivate data. `sqlite-before.csv` and `sqlite-after.csv` were produced by a real, documented SQLite typed import/export that changed leading zeros and a long integer; the other conversion examples are deliberately authored changes. [Provenance](examples/PROVENANCE.md) and actual reports distinguish these sources. **Excel/LibreOffice conversion workflows and production imports remain NOT RUN.** A real local Chromium file-upload/filter/download acceptance is separate from tests and CI; [acceptance records](docs/ACCEPTANCE.md) state exactly what ran.
+Examples use explicitly controlled, nonprivate data. `sqlite-before.csv` and `sqlite-after.csv` came from a real documented SQLite typed import/export. The legacy `before.csv`/`after-controlled.tsv` and two small XLSX fixtures contain deliberately authored changes. The separate `examples/real-calc/` folder contains original files actually exported by Calc. [Provenance](examples/PROVENANCE.md) and actual reports distinguish these sources. **Real headless LibreOffice Calc conversion now ran** on controlled inputs; [exact results/options and actual exports](REAL_CONVERSION_RESULTS.md). Excel, interactive Office GUI and production imports remain NOT RUN. Actual Chromium checks against both installed platform servers are separate from tests and hosted CI; [current acceptance](PUBLICATION_READINESS.md) states what ran, and [historical acceptance](docs/ACCEPTANCE.md) preserves the earlier evidence.
 
 CSV/table diffs and semantic comparison are established capabilities. Executed csv-diff/daff baselines detect most ordinary changes. ImportProof combines explicit policies, original-cell evidence and conservative verdicts into one local workflow; no algorithmic novelty or broad superiority is claimed. [Detailed overlap and results](docs/COMPETITORS.md).
 

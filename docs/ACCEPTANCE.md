@@ -1,6 +1,8 @@
+> Historical acceptance for the original 0f5fde9 delivery. Current 79-test release-candidate evidence, real Calc execution and limitations are in [REAL_CONVERSION_RESULTS](../REAL_CONVERSION_RESULTS.md) and [PUBLICATION_READINESS](../PUBLICATION_READINESS.md). The original evidence below remains preserved.
+
 # Executed acceptance — 18 October 2026
 
-Status: **PASS for bounded local source use**, with the NOT RUN items below. Tested implementation: `f1b04b2ce5df1c77c51acb561fe7e0536c7b2188`. Later delivery commits add documentation, screenshots and recorded reports only; the release audit verifies that executable files and tests are unchanged.
+Status: **PASS for bounded local source use**, with the NOT RUN items below. Tested implementation: `f1b04b2ce5df1c77c51acb561fe7e0536c7b2188`. The original 0f5fde9 delivery added documentation/screenshots to this implementation. A later RC includes a separately documented formula-header fix and additional regression evidence; do not apply this historical no-code-change statement to that later RC.
 
 | Check | Windows | Linux |
 | --- | --- | --- |

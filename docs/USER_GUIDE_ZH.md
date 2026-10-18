@@ -57,4 +57,10 @@ XLSX 默认比较所有工作表。可用 `before_sheet`/`after_sheet` 限定一
 
 Linux 有512MiB子进程地址空间上限；**Windows 无硬内存配额**。localhost 服务是单请求、有限队列及上传/响应大小限制，不是完整OS沙箱，不应开放到公网。报告哈希只标识输入字节，不证明来源真实性。
 
-样例全部非私人数据：SQLite样例是实际运行的受控 REAL字段导入导出，其余变化是明确构造；**没有验证真实 Excel/LibreOffice 转换或生产迁移**。实际测试、浏览器及跨平台记录见 [验收](ACCEPTANCE.md)，竞品实测见 [对照](COMPETITORS.md)。MIT源码，第三方依赖保留各自许可证。本地交付不自动公开仓库、推送、发布包或部署。
+样例全部非私人数据：SQLite样例是实际运行的受控 REAL字段导入导出；早期 before.csv/after-controlled.tsv 及两个小型 XLSX 样例的变化是明确构造。新增 examples/real-calc/ 保存真实 Calc 导出的原始文件。**现已实际运行 LibreOffice 26.2.5.2 的无界面 UNO 导入/导出；Excel、交互式 Office 界面和生产迁移仍未验证**。[来源说明](../examples/PROVENANCE.md) 区分这些材料。本轮记录见 [发布验收](../PUBLICATION_READINESS.md)，原始记录见 [历史验收](ACCEPTANCE.md)，竞品实测见 [对照](COMPETITORS.md)。MIT源码，第三方依赖保留各自许可证。本地交付不自动公开仓库、推送、发布包或部署。
+
+## 本轮真实软件验收
+
+全新 Windows 与隔离 Linux 环境各通过79项测试；两端服务通过真实 Windows Chromium 上传、筛选、导出及安全边界检查。实际 Calc 五次导入、十份导出：默认方式损失前导零/长编号精度，文本列方式保留非空文本，但合并引号空字符串与普通空字段。严格模式报告这些表示变化；只有明确 null_tokens 规则才允许等价。普通文本 CSV 对照等价。
+
+**真实 Calc 生成的 XLSX（包括正常对照）目前仍会 UNKNOWN**，因为部分元数据和缺失单元格语义不被认证；不要将 UNKNOWN 当作数据完整或损坏。发布候选结论 READY_WITH_LIMITATIONS。详见 [真实转换记录](../REAL_CONVERSION_RESULTS.md) 和 [公开准备决定](../PUBLICATION_READINESS.md)。原77项历史验收记录仍保留；新证据以 rc- 前缀区分。

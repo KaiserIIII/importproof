@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "observations": [
+    {
+      "platform": "windows",
+      "csv_fields": 14,
+      "formula_scalar_guard": "PASS",
+      "header_unknown": "PASS",
+      "actual_file_limit_http_status": 413
+    },
+    {
+      "platform": "linux",
+      "csv_fields": 14,
+      "formula_scalar_guard": "PASS",
+      "header_unknown": "PASS",
+      "actual_file_limit_http_status": 413
+    }
+  ],
+  "scope": "Two actual browser exports plus independent escaped HTML/scalar guard probes; no hostile office formula executed"
+}

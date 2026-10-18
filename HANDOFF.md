@@ -17,7 +17,7 @@ To reproduce: `python tools/verify.py new-acceptance`, then `python tools/resour
 - `worker.py`: spawned comparison process, deadline and result caps; Linux address-space limit.
 - `cli.py`, `web.py`, `static/`: installed CLI and local Web interface using the same worker.
 - `reports.py`: JSON, inert HTML and formula-guarded findings CSV.
-- `tests/`: 77 unittest methods, including 12 compatibility cases in one method.
+- `tests/`: 79 unittest methods, including 12 compatibility cases in one method.
 - `examples/`: nonprivate controlled inputs, actual SQLite conversion files, and real generated reports; provenance is explicit.
 - `docs/evidence/`: actual selected portable acceptance records. Full raw experiments are deliberately outside public source.
 - `requirements.lock`, `docs/DEPENDENCIES.json`, `third_party/licenses/`: exact dependencies, upstream revisions, licenses.
@@ -26,7 +26,7 @@ To reproduce: `python tools/verify.py new-acceptance`, then `python tools/resour
 
 ## Evidence and restoration
 
-Implementation tested: `f1b04b2ce5df1c77c51acb561fe7e0536c7b2188`. Final documentation commits retain those implementation bytes. Final Git SHA and bundle/ZIP paths are recorded in the external `DELIVERY.json` because a commit cannot contain its own SHA. Raw evidence sibling: `importproof-evidence-20261018/`; it includes fresh environment commands, original failures, external research, dependency audits, browser trace, independent review and adversarial inputs. Do not upload this directory automatically.
+Implementation tested: `296e0bf8d19ef65bdc288d948fbfb934aa3c0dbd`. Final documentation commits retain those implementation bytes. Current raw archive is importproof-rc-evidence-20261018/; earlier evidence remains separately preserved. Final Git SHA and bundle/ZIP paths are recorded in the external `DELIVERY.json` because a commit cannot contain its own SHA. Raw evidence sibling: `importproof-evidence-20261018/`; it includes fresh environment commands, original failures, external research, dependency audits, browser trace, independent review and adversarial inputs. Do not upload this directory automatically.
 
 The local source ZIP and verified Git bundle are recovery copies, not released packages. A new checkout/archive was installed and tested without the original source path. `PUBLIC_FILES.json` describes the final source tree; verify its SHA-256 values after extraction. Source checkout excludes venvs, caches, private inputs, wheel archives and external research snapshots.
 
@@ -34,4 +34,8 @@ The local source ZIP and verified Git bundle are recovery copies, not released p
 
 No result identifies which app caused a change. CONFIRMED_LOSS means an observed disallowed difference conditional on alignment/policy, not proof of accidental business loss. UNKNOWN is not a pass. Formula/macros never execute; complete workbook rendering and formula correctness are not certified. Windows has no hard RAM ceiling; output caps are not peak-memory caps. Reports expose original values and should stay private for private data.
 
-The most valuable optional next validation is one consented, nonprivate real Excel/LibreOffice import/export workflow with a fixed application version and known ground truth. It has not been performed. Do not add heuristic causal attribution or claim broad accuracy based on controlled examples. Do not publish remotely without separate authorization.
+The earlier planned real-application validation has now been completed for one LibreOffice build through headless UNO. Excel, another application version/locale and interactive Office GUI remain unverified. Do not add heuristic causal attribution or claim broad accuracy based on controlled examples. Do not publish remotely without separate authorization.
+
+## Current candidate
+
+Read PUBLICATION_READINESS.md and REAL_CONVERSION_RESULTS.md before use. Decision READY_WITH_LIMITATIONS; normal actual Calc XLSX can be UNKNOWN. Actual five-case Calc campaign is complete; optional tools/replay_real_calc.py reproduces only frozen nonprivate fixtures with an installed UNO-capable Calc. A future separately authorized validation could cover another app/version/locale; no further feature work is scheduled. Current DELIVERY.json and final bundle/ZIP are in the RC evidence sibling, not the historical evidence directory.
