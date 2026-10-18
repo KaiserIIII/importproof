@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;unsafe-inline&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;"><title>ImportProof evidence report</title><style>body{font:16px/1.55 system-ui,sans-serif;color:#1b2939;background:#f4f7fb;margin:0}main{max-width:1100px;margin:auto;padding:36px 24px}h1{letter-spacing:-.04em}article,details.panel{background:white;border:1px solid #ced9e6;border-radius:12px;padding:20px;margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5fa;padding:14px;border-radius:8px;font-size:13px}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}li{margin:6px 0}summary{cursor:pointer;font-weight:600}@media(max-width:700px){.evidence{grid-template-columns:1fr}}</style></head><body><main><p>IMPORTPROOF · LOCAL EVIDENCE REPORT</p><h1>CONFIRMED_LOSS</h1><p>Observed differences under the recorded rules. Findings do not establish software causality or business intent.</p><ul><li><strong>CONFIRMED LOSS</strong> 12</li><li><strong>SUSPECTED CONVERSION</strong> 8</li><li><strong>EQUIVALENT</strong> 0</li><li><strong>UNKNOWN</strong> 0</li></ul><p>Truncated: False</p><details class="panel" open><summary>Inputs, policy and assumptions</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;inputs&quot;: {
+    &quot;before&quot;: {
+      &quot;format&quot;: &quot;csv&quot;,
+      &quot;sha256&quot;: &quot;2fcec9a8ebfc1a3aa6d85f0eb2bec9f79219ab4e08b03cb45f1f600e519c2d8c&quot;,
+      &quot;bytes&quot;: 338,
+      &quot;metadata&quot;: {
+        &quot;encoding&quot;: &quot;utf-8-sig&quot;,
+        &quot;delimiter&quot;: &quot;,&quot;,
+        &quot;quotechar&quot;: &quot;\&quot;&quot;,
+        &quot;header_source&quot;: {
+          &quot;line_start&quot;: 1,
+          &quot;line_end&quot;: 1,
+          &quot;raw_record&quot;: &quot;row_id,business_id,leading_zero,twenty_digit,scientific_text,date_text,chinese,nullable,quoted_empty,spaces\r\n&quot;
+        }
+      }
+    },
+    &quot;after&quot;: {
+      &quot;format&quot;: &quot;csv&quot;,
+      &quot;sha256&quot;: &quot;c69fd22a5d44af03ed3b55d3f57ea183e2d382e80c934678175881113eb16d83&quot;,
+      &quot;bytes&quot;: 304,
+      &quot;metadata&quot;: {
+        &quot;encoding&quot;: &quot;utf-8-sig&quot;,
+        &quot;delimiter&quot;: &quot;,&quot;,
+        &quot;quotechar&quot;: &quot;\&quot;&quot;,
+        &quot;header_source&quot;: {
+          &quot;line_start&quot;: 1,
+          &quot;line_end&quot;: 1,
+          &quot;raw_record&quot;: &quot;row_id,business_id,leading_zero,twenty_digit,scientific_text,date_text,chinese,nullable,quoted_empty,spaces\r\n&quot;
+        }
+      }
+    }
+  },
+  &quot;policy&quot;: {
+    &quot;keys&quot;: [
+      &quot;row_id&quot;
+    ],
+    &quot;ignore_order&quot;: false,
+    &quot;text_columns&quot;: [],
+    &quot;numeric_columns&quot;: [],
+    &quot;date_columns&quot;: [],
+    &quot;ignore_columns&quot;: [],
+    &quot;date_formats&quot;: [
+      &quot;%Y-%m-%d&quot;,
+      &quot;%Y-%m-%dT%H:%M:%S&quot;
+    ],
+    &quot;trim_whitespace&quot;: false,
+    &quot;unicode_normalization&quot;: &quot;none&quot;,
+    &quot;null_tokens&quot;: [],
+    &quot;column_map&quot;: {},
+    &quot;before&quot;: {},
+    &quot;after&quot;: {},
+    &quot;before_sheet&quot;: null,
+    &quot;after_sheet&quot;: null
+  },
+  &quot;assumptions&quot;: [
+    &quot;Input origins and before/after roles are caller supplied; hashes identify bytes only.&quot;,
+    &quot;Observed difference does not establish intent or which application caused it.&quot;,
+    &quot;Header is the first record; all default sheets compared. No fuzzy identity matching.&quot;
+  ],
+  &quot;truncated&quot;: false,
+  &quot;summary&quot;: {
+    &quot;CONFIRMED_LOSS&quot;: 12,
+    &quot;SUSPECTED_CONVERSION&quot;: 8,
+    &quot;EQUIVALENT&quot;: 0,
+    &quot;UNKNOWN&quot;: 0
+  },
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;
+}</pre></details><h2>Findings</h2><article><h3>1. SUSPECTED_CONVERSION · LEADING_ZERO_REMOVED</h3><p>Pattern consistent with numeric conversion; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;00123&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;123&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;LEADING_ZERO_REMOVED&quot;,
+  &quot;message&quot;: &quot;Pattern consistent with numeric conversion; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;00123&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;123&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C2&quot;
+    }
+  }
+}</pre></details></article><article><h3>2. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;00123&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;123&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;00123&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;123&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C2&quot;
+    }
+  }
+}</pre></details></article><article><h3>3. SUSPECTED_CONVERSION · SCIENTIFIC_NOTATION_CHANGE</h3><p>Scientific notation representation changed; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;12345678901234567890&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1.23456789012346E+019&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;SCIENTIFIC_NOTATION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Scientific notation representation changed; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;12345678901234567890&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1.23456789012346E+019&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D2&quot;
+    }
+  }
+}</pre></details></article><article><h3>4. CONFIRMED_LOSS · LONG_NUMBER_PRECISION_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;12345678901234567890&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1.23456789012346E+019&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;LONG_NUMBER_PRECISION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;12345678901234567890&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1.23456789012346E+019&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D2&quot;
+    }
+  }
+}</pre></details></article><article><h3>5. SUSPECTED_CONVERSION · SCIENTIFIC_NOTATION_CHANGE</h3><p>Scientific notation representation changed; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E10&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;10000000000&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;SCIENTIFIC_NOTATION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Scientific notation representation changed; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E10&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;10000000000&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E2&quot;
+    }
+  }
+}</pre></details></article><article><h3>6. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E10&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;10000000000&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E10&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;10000000000&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E2&quot;
+    }
+  }
+}</pre></details></article><article><h3>7. CONFIRMED_LOSS · EMPTY_NULL_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;&quot;,
+    &quot;kind&quot;: &quot;empty&quot;,
+    &quot;coordinate&quot;: &quot;I2&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 2,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 2,
+    &quot;line_end&quot;: 2,
+    &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: null,
+    &quot;kind&quot;: &quot;blank&quot;,
+    &quot;coordinate&quot;: &quot;I2&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;EMPTY_NULL_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\&quot;\&quot;,\&quot; padded \&quot;\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;&quot;,
+      &quot;kind&quot;: &quot;empty&quot;,
+      &quot;coordinate&quot;: &quot;I2&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 2,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 2,
+      &quot;line_end&quot;: 2,
+      &quot;raw_record&quot;: &quot;r1,dup,123,1.23456789012346E+019,10000000000,2026-10-18,中文测试,,, padded \r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: null,
+      &quot;kind&quot;: &quot;blank&quot;,
+      &quot;coordinate&quot;: &quot;I2&quot;
+    }
+  }
+}</pre></details></article><article><h3>8. SUSPECTED_CONVERSION · LEADING_ZERO_REMOVED</h3><p>Pattern consistent with numeric conversion; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;00000&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;0&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;LEADING_ZERO_REMOVED&quot;,
+  &quot;message&quot;: &quot;Pattern consistent with numeric conversion; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;00000&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;0&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C3&quot;
+    }
+  }
+}</pre></details></article><article><h3>9. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;00000&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;0&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;00000&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;0&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C3&quot;
+    }
+  }
+}</pre></details></article><article><h3>10. SUSPECTED_CONVERSION · SCIENTIFIC_NOTATION_CHANGE</h3><p>Scientific notation representation changed; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;99999999999999999999&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E+020&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;SCIENTIFIC_NOTATION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Scientific notation representation changed; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;99999999999999999999&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E+020&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D3&quot;
+    }
+  }
+}</pre></details></article><article><h3>11. CONFIRMED_LOSS · LONG_NUMBER_PRECISION_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;99999999999999999999&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E+020&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;LONG_NUMBER_PRECISION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;99999999999999999999&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E+020&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D3&quot;
+    }
+  }
+}</pre></details></article><article><h3>12. SUSPECTED_CONVERSION · SCIENTIFIC_NOTATION_CHANGE</h3><p>Scientific notation representation changed; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1e-05&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;0.00001&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;SCIENTIFIC_NOTATION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Scientific notation representation changed; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1e-05&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;0.00001&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E3&quot;
+    }
+  }
+}</pre></details></article><article><h3>13. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1e-05&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;0.00001&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1e-05&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;0.00001&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E3&quot;
+    }
+  }
+}</pre></details></article><article><h3>14. CONFIRMED_LOSS · EMPTY_NULL_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;&quot;,
+    &quot;kind&quot;: &quot;empty&quot;,
+    &quot;coordinate&quot;: &quot;I3&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 3,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 3,
+    &quot;line_end&quot;: 3,
+    &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: null,
+    &quot;kind&quot;: &quot;blank&quot;,
+    &quot;coordinate&quot;: &quot;I3&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;EMPTY_NULL_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\&quot;\&quot;,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;&quot;,
+      &quot;kind&quot;: &quot;empty&quot;,
+      &quot;coordinate&quot;: &quot;I3&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 3,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 3,
+      &quot;line_end&quot;: 3,
+      &quot;raw_record&quot;: &quot;r2,dup,0,1E+020,0.00001,01/02/2026,漢字😀,NULL,,tail\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: null,
+      &quot;kind&quot;: &quot;blank&quot;,
+      &quot;coordinate&quot;: &quot;I3&quot;
+    }
+  }
+}</pre></details></article><article><h3>15. SUSPECTED_CONVERSION · LEADING_ZERO_REMOVED</h3><p>Pattern consistent with numeric conversion; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;01230&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1230&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;LEADING_ZERO_REMOVED&quot;,
+  &quot;message&quot;: &quot;Pattern consistent with numeric conversion; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;01230&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1230&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C4&quot;
+    }
+  }
+}</pre></details></article><article><h3>16. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;01230&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;leading_zero&quot;,
+  &quot;column_index&quot;: 3,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1230&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;C4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;01230&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;leading_zero&quot;,
+    &quot;column_index&quot;: 3,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1230&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;C4&quot;
+    }
+  }
+}</pre></details></article><article><h3>17. SUSPECTED_CONVERSION · SCIENTIFIC_NOTATION_CHANGE</h3><p>Scientific notation representation changed; cause unproven</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;10000000000000000001&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E+019&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;SUSPECTED_CONVERSION&quot;,
+  &quot;code&quot;: &quot;SCIENTIFIC_NOTATION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Scientific notation representation changed; cause unproven&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;10000000000000000001&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E+019&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D4&quot;
+    }
+  }
+}</pre></details></article><article><h3>18. CONFIRMED_LOSS · LONG_NUMBER_PRECISION_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;10000000000000000001&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;twenty_digit&quot;,
+  &quot;column_index&quot;: 4,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E+019&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;D4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;LONG_NUMBER_PRECISION_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;10000000000000000001&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;twenty_digit&quot;,
+    &quot;column_index&quot;: 4,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E+019&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;D4&quot;
+    }
+  }
+}</pre></details></article><article><h3>19. CONFIRMED_LOSS · DECIMAL_REPRESENTATION_CHANGED</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E20&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;scientific_text&quot;,
+  &quot;column_index&quot;: 5,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;1E+020&quot;,
+    &quot;kind&quot;: &quot;text&quot;,
+    &quot;coordinate&quot;: &quot;E4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;DECIMAL_REPRESENTATION_CHANGED&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E20&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;scientific_text&quot;,
+    &quot;column_index&quot;: 5,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;1E+020&quot;,
+      &quot;kind&quot;: &quot;text&quot;,
+      &quot;coordinate&quot;: &quot;E4&quot;
+    }
+  }
+}</pre></details></article><article><h3>20. CONFIRMED_LOSS · EMPTY_NULL_CHANGE</h3><p>Observed representation/type/value changed under selected rules; no application attribution</p><p>Table: data</p><div class="evidence"><section><h4>Before</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: &quot;&quot;,
+    &quot;kind&quot;: &quot;empty&quot;,
+    &quot;coordinate&quot;: &quot;I4&quot;
+  }
+}</pre></section><section><h4>After</h4><pre>{
+  &quot;row&quot;: 4,
+  &quot;column&quot;: &quot;quoted_empty&quot;,
+  &quot;column_index&quot;: 9,
+  &quot;sheet&quot;: &quot;data&quot;,
+  &quot;source&quot;: {
+    &quot;line_start&quot;: 4,
+    &quot;line_end&quot;: 4,
+    &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+  },
+  &quot;cell&quot;: {
+    &quot;raw&quot;: null,
+    &quot;kind&quot;: &quot;blank&quot;,
+    &quot;coordinate&quot;: &quot;I4&quot;
+  }
+}</pre></section></div><details><summary>Complete finding</summary><pre>{
+  &quot;verdict&quot;: &quot;CONFIRMED_LOSS&quot;,
+  &quot;code&quot;: &quot;EMPTY_NULL_CHANGE&quot;,
+  &quot;message&quot;: &quot;Observed representation/type/value changed under selected rules; no application attribution&quot;,
+  &quot;table&quot;: &quot;data&quot;,
+  &quot;before&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\&quot;\&quot;,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: &quot;&quot;,
+      &quot;kind&quot;: &quot;empty&quot;,
+      &quot;coordinate&quot;: &quot;I4&quot;
+    }
+  },
+  &quot;after&quot;: {
+    &quot;row&quot;: 4,
+    &quot;column&quot;: &quot;quoted_empty&quot;,
+    &quot;column_index&quot;: 9,
+    &quot;sheet&quot;: &quot;data&quot;,
+    &quot;source&quot;: {
+      &quot;line_start&quot;: 4,
+      &quot;line_end&quot;: 4,
+      &quot;raw_record&quot;: &quot;r3,b3,1230,1E+019,1E+020,2026/10/19,café组合,,,last\r\n&quot;
+    },
+    &quot;cell&quot;: {
+      &quot;raw&quot;: null,
+      &quot;kind&quot;: &quot;blank&quot;,
+      &quot;coordinate&quot;: &quot;I4&quot;
+    }
+  }
+}</pre></details></article></main></body></html>

@@ -1,0 +1,833 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "inputs": {
+    "before": {
+      "format": "csv",
+      "sha256": "2fcec9a8ebfc1a3aa6d85f0eb2bec9f79219ab4e08b03cb45f1f600e519c2d8c",
+      "bytes": 338,
+      "metadata": {
+        "encoding": "utf-8-sig",
+        "delimiter": ",",
+        "quotechar": "\"",
+        "header_source": {
+          "line_start": 1,
+          "line_end": 1,
+          "raw_record": "row_id,business_id,leading_zero,twenty_digit,scientific_text,date_text,chinese,nullable,quoted_empty,spaces\r\n"
+        }
+      }
+    },
+    "after": {
+      "format": "csv",
+      "sha256": "53c9ba83ff8d7b991d0659b1e38bc5166cbdbccec1908cf6f96f814f05622546",
+      "bytes": 300,
+      "metadata": {
+        "encoding": "utf-8-sig",
+        "delimiter": ",",
+        "quotechar": "\"",
+        "header_source": {
+          "line_start": 1,
+          "line_end": 1,
+          "raw_record": "row_id,business_id,leading_zero,twenty_digit,scientific_text,date_text,chinese,nullable,quoted_empty,spaces\r\n"
+        }
+      }
+    }
+  },
+  "policy": {
+    "keys": [
+      "row_id"
+    ],
+    "ignore_order": false,
+    "text_columns": [],
+    "numeric_columns": [],
+    "date_columns": [],
+    "ignore_columns": [],
+    "date_formats": [
+      "%Y-%m-%d",
+      "%Y-%m-%dT%H:%M:%S"
+    ],
+    "trim_whitespace": false,
+    "unicode_normalization": "none",
+    "null_tokens": [],
+    "column_map": {},
+    "before": {},
+    "after": {},
+    "before_sheet": null,
+    "after_sheet": null
+  },
+  "assumptions": [
+    "Input origins and before/after roles are caller supplied; hashes identify bytes only.",
+    "Observed difference does not establish intent or which application caused it.",
+    "Header is the first record; all default sheets compared. No fuzzy identity matching."
+  ],
+  "findings": [
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "LEADING_ZERO_REMOVED",
+      "message": "Pattern consistent with numeric conversion; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "00123",
+          "kind": "text",
+          "coordinate": "C2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": "123",
+          "kind": "text",
+          "coordinate": "C2"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "00123",
+          "kind": "text",
+          "coordinate": "C2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": "123",
+          "kind": "text",
+          "coordinate": "C2"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "SCIENTIFIC_NOTATION_CHANGE",
+      "message": "Scientific notation representation changed; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "12345678901234567890",
+          "kind": "text",
+          "coordinate": "D2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": "1.23456789012346E+019",
+          "kind": "text",
+          "coordinate": "D2"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "LONG_NUMBER_PRECISION_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "12345678901234567890",
+          "kind": "text",
+          "coordinate": "D2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": "1.23456789012346E+019",
+          "kind": "text",
+          "coordinate": "D2"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "1E10",
+          "kind": "text",
+          "coordinate": "E2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": "1.00E+10",
+          "kind": "text",
+          "coordinate": "E2"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "EMPTY_NULL_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 2,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\"\",\" padded \"\r\n"
+        },
+        "cell": {
+          "raw": "",
+          "kind": "empty",
+          "coordinate": "I2"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 2,
+          "line_end": 2,
+          "raw_record": "r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded \r\n"
+        },
+        "cell": {
+          "raw": null,
+          "kind": "blank",
+          "coordinate": "I2"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "LEADING_ZERO_REMOVED",
+      "message": "Pattern consistent with numeric conversion; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "00000",
+          "kind": "text",
+          "coordinate": "C3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "0",
+          "kind": "text",
+          "coordinate": "C3"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "00000",
+          "kind": "text",
+          "coordinate": "C3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "0",
+          "kind": "text",
+          "coordinate": "C3"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "SCIENTIFIC_NOTATION_CHANGE",
+      "message": "Scientific notation representation changed; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "99999999999999999999",
+          "kind": "text",
+          "coordinate": "D3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "1E+020",
+          "kind": "text",
+          "coordinate": "D3"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "LONG_NUMBER_PRECISION_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "99999999999999999999",
+          "kind": "text",
+          "coordinate": "D3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "1E+020",
+          "kind": "text",
+          "coordinate": "D3"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "1e-05",
+          "kind": "text",
+          "coordinate": "E3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "1.00E-05",
+          "kind": "text",
+          "coordinate": "E3"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "POSSIBLE_DATE_CONVERSION",
+      "message": "Changed date-shaped text without a confirmed date interpretation",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "date_text",
+        "column_index": 6,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "01/02/2026",
+          "kind": "text",
+          "coordinate": "F3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "date_text",
+        "column_index": 6,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "26/1/2",
+          "kind": "text",
+          "coordinate": "F3"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "VALUE_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "date_text",
+        "column_index": 6,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "01/02/2026",
+          "kind": "text",
+          "coordinate": "F3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "date_text",
+        "column_index": 6,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": "26/1/2",
+          "kind": "text",
+          "coordinate": "F3"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "EMPTY_NULL_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 3,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\"\",tail\r\n"
+        },
+        "cell": {
+          "raw": "",
+          "kind": "empty",
+          "coordinate": "I3"
+        }
+      },
+      "after": {
+        "row": 3,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 3,
+          "line_end": 3,
+          "raw_record": "r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail\r\n"
+        },
+        "cell": {
+          "raw": null,
+          "kind": "blank",
+          "coordinate": "I3"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "LEADING_ZERO_REMOVED",
+      "message": "Pattern consistent with numeric conversion; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "01230",
+          "kind": "text",
+          "coordinate": "C4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": "1230",
+          "kind": "text",
+          "coordinate": "C4"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "01230",
+          "kind": "text",
+          "coordinate": "C4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "leading_zero",
+        "column_index": 3,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": "1230",
+          "kind": "text",
+          "coordinate": "C4"
+        }
+      }
+    },
+    {
+      "verdict": "SUSPECTED_CONVERSION",
+      "code": "SCIENTIFIC_NOTATION_CHANGE",
+      "message": "Scientific notation representation changed; cause unproven",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "10000000000000000001",
+          "kind": "text",
+          "coordinate": "D4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": "1E+019",
+          "kind": "text",
+          "coordinate": "D4"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "LONG_NUMBER_PRECISION_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "10000000000000000001",
+          "kind": "text",
+          "coordinate": "D4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "twenty_digit",
+        "column_index": 4,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": "1E+019",
+          "kind": "text",
+          "coordinate": "D4"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "DECIMAL_REPRESENTATION_CHANGED",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "1E20",
+          "kind": "text",
+          "coordinate": "E4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "scientific_text",
+        "column_index": 5,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": "1.00E+20",
+          "kind": "text",
+          "coordinate": "E4"
+        }
+      }
+    },
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "EMPTY_NULL_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "data",
+      "before": {
+        "row": 4,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\"\",last\r\n"
+        },
+        "cell": {
+          "raw": "",
+          "kind": "empty",
+          "coordinate": "I4"
+        }
+      },
+      "after": {
+        "row": 4,
+        "column": "quoted_empty",
+        "column_index": 9,
+        "sheet": "data",
+        "source": {
+          "line_start": 4,
+          "line_end": 4,
+          "raw_record": "r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last\r\n"
+        },
+        "cell": {
+          "raw": null,
+          "kind": "blank",
+          "coordinate": "I4"
+        }
+      }
+    }
+  ],
+  "truncated": false,
+  "summary": {
+    "CONFIRMED_LOSS": 13,
+    "SUSPECTED_CONVERSION": 7,
+    "EQUIVALENT": 0,
+    "UNKNOWN": 0
+  },
+  "verdict": "CONFIRMED_LOSS"
+}

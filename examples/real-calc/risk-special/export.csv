@@ -1,0 +1,4 @@
+row_id,business_id,leading_zero,twenty_digit,scientific_text,date_text,chinese,nullable,quoted_empty,spaces
+r1,dup,123,1.23456789012346E+019,1.00E+10,2026-10-18,中文测试,,, padded 
+r2,dup,0,1E+020,1.00E-05,26/1/2,漢字😀,NULL,,tail
+r3,b3,1230,1E+019,1.00E+20,2026/10/19,café组合,,,last

@@ -1,0 +1,214 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "case": "risk-default",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 12,
+        "SUSPECTED_CONVERSION": 8,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "codes": [
+        "DECIMAL_REPRESENTATION_CHANGED",
+        "EMPTY_NULL_CHANGE",
+        "LEADING_ZERO_REMOVED",
+        "LONG_NUMBER_PRECISION_CHANGE",
+        "SCIENTIFIC_NOTATION_CHANGE"
+      ]
+    },
+    {
+      "case": "risk-default",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 10,
+        "SUSPECTED_CONVERSION": 8,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 16
+      },
+      "codes": [
+        "DATE_OR_TYPE_CHANGED",
+        "DECIMAL_REPRESENTATION_CHANGED",
+        "FORMULA_OR_UNAVAILABLE_CELL",
+        "LEADING_ZERO_REMOVED",
+        "LONG_NUMBER_PRECISION_CHANGE",
+        "SCIENTIFIC_NOTATION_CHANGE",
+        "TEXT_TO_DATE",
+        "UNSUPPORTED_RICH_TEXT",
+        "UNSUPPORTED_ROW_ATTRIBUTES",
+        "UNSUPPORTED_SHEET_CONSTRUCT",
+        "UNSUPPORTED_WORKBOOK_CONSTRUCT"
+      ]
+    },
+    {
+      "case": "risk-text",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 3,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "codes": [
+        "EMPTY_NULL_CHANGE"
+      ]
+    },
+    {
+      "case": "risk-text",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 16
+      },
+      "codes": [
+        "FORMULA_OR_UNAVAILABLE_CELL",
+        "UNSUPPORTED_RICH_TEXT",
+        "UNSUPPORTED_ROW_ATTRIBUTES",
+        "UNSUPPORTED_SHEET_CONSTRUCT",
+        "UNSUPPORTED_WORKBOOK_CONSTRUCT"
+      ]
+    },
+    {
+      "case": "risk-special",
+      "format": "csv",
+      "verdict": "CONFIRMED_LOSS",
+      "summary": {
+        "CONFIRMED_LOSS": 13,
+        "SUSPECTED_CONVERSION": 7,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "codes": [
+        "DECIMAL_REPRESENTATION_CHANGED",
+        "EMPTY_NULL_CHANGE",
+        "LEADING_ZERO_REMOVED",
+        "LONG_NUMBER_PRECISION_CHANGE",
+        "POSSIBLE_DATE_CONVERSION",
+        "SCIENTIFIC_NOTATION_CHANGE",
+        "VALUE_CHANGED"
+      ]
+    },
+    {
+      "case": "risk-special",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 11,
+        "SUSPECTED_CONVERSION": 9,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 16
+      },
+      "codes": [
+        "DATE_OR_TYPE_CHANGED",
+        "DECIMAL_REPRESENTATION_CHANGED",
+        "FORMULA_OR_UNAVAILABLE_CELL",
+        "LEADING_ZERO_REMOVED",
+        "LONG_NUMBER_PRECISION_CHANGE",
+        "SCIENTIFIC_NOTATION_CHANGE",
+        "TEXT_TO_DATE",
+        "UNSUPPORTED_RICH_TEXT",
+        "UNSUPPORTED_ROW_ATTRIBUTES",
+        "UNSUPPORTED_SHEET_CONSTRUCT",
+        "UNSUPPORTED_WORKBOOK_CONSTRUCT"
+      ]
+    },
+    {
+      "case": "control-default",
+      "format": "csv",
+      "verdict": "EQUIVALENT",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "codes": []
+    },
+    {
+      "case": "control-default",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 9
+      },
+      "codes": [
+        "UNSUPPORTED_ROW_ATTRIBUTES",
+        "UNSUPPORTED_SHEET_CONSTRUCT",
+        "UNSUPPORTED_WORKBOOK_CONSTRUCT"
+      ]
+    },
+    {
+      "case": "control-text",
+      "format": "csv",
+      "verdict": "EQUIVALENT",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 0
+      },
+      "codes": []
+    },
+    {
+      "case": "control-text",
+      "format": "xlsx",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 9
+      },
+      "codes": [
+        "UNSUPPORTED_ROW_ATTRIBUTES",
+        "UNSUPPORTED_SHEET_CONSTRUCT",
+        "UNSUPPORTED_WORKBOOK_CONSTRUCT"
+      ]
+    },
+    {
+      "case": "duplicates",
+      "format": "csv",
+      "verdict": "UNKNOWN",
+      "summary": {
+        "CONFIRMED_LOSS": 4,
+        "SUSPECTED_CONVERSION": 2,
+        "EQUIVALENT": 0,
+        "UNKNOWN": 1
+      },
+      "codes": [
+        "AMBIGUOUS_KEY",
+        "DECIMAL_REPRESENTATION_CHANGED",
+        "EMPTY_NULL_CHANGE",
+        "LEADING_ZERO_REMOVED",
+        "LONG_NUMBER_PRECISION_CHANGE",
+        "SCIENTIFIC_NOTATION_CHANGE"
+      ]
+    },
+    {
+      "case": "text-null-equivalent",
+      "format": "csv",
+      "verdict": "EQUIVALENT",
+      "summary": {
+        "CONFIRMED_LOSS": 0,
+        "SUSPECTED_CONVERSION": 0,
+        "EQUIVALENT": 3,
+        "UNKNOWN": 0
+      },
+      "codes": [
+        "RULE_EQUIVALENT"
+      ]
+    }
+  ],
+  "baseline_invocations": 15,
+  "scope": "Actual headless Calc exports of controlled nonprivate source data; no interactive UI, Excel or production importer"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "inputs": {
+    "before": {
+      "format": "csv",
+      "sha256": "1eeccdbb3c7d76685b3f64c583422a2086e4e0c920f68875e7790acaf5148ae1",
+      "bytes": 58,
+      "metadata": {
+        "encoding": "utf-8-sig",
+        "delimiter": ",",
+        "quotechar": "\"",
+        "header_source": {
+          "line_start": 1,
+          "line_end": 1,
+          "raw_record": "row_id,value,note\r\n"
+        }
+      }
+    },
+    "after": {
+      "format": "csv",
+      "sha256": "af2b3d823902fa2101c83e7ae10d554701287429ff21b9a2b5bab999e27d9fe6",
+      "bytes": 55,
+      "metadata": {
+        "encoding": "utf-8-sig",
+        "delimiter": ",",
+        "quotechar": "\"",
+        "header_source": {
+          "line_start": 1,
+          "line_end": 1,
+          "raw_record": "row_id,value,note\r\n"
+        }
+      }
+    }
+  },
+  "policy": {
+    "keys": [
+      "row_id"
+    ],
+    "ignore_order": false,
+    "text_columns": [],
+    "numeric_columns": [],
+    "date_columns": [],
+    "ignore_columns": [],
+    "date_formats": [
+      "%Y-%m-%d",
+      "%Y-%m-%dT%H:%M:%S"
+    ],
+    "trim_whitespace": false,
+    "unicode_normalization": "none",
+    "null_tokens": [],
+    "column_map": {},
+    "before": {},
+    "after": {},
+    "before_sheet": null,
+    "after_sheet": null
+  },
+  "assumptions": [
+    "Input origins and before/after roles are caller supplied; hashes identify bytes only.",
+    "Observed difference does not establish intent or which application caused it.",
+    "Header is the first record; all default sheets compared. No fuzzy identity matching.",
+    "No disallowed differences observed within supported data and explicit scope."
+  ],
+  "findings": [],
+  "truncated": false,
+  "summary": {
+    "CONFIRMED_LOSS": 0,
+    "SUSPECTED_CONVERSION": 0,
+    "EQUIVALENT": 0,
+    "UNKNOWN": 0
+  },
+  "verdict": "EQUIVALENT"
+}

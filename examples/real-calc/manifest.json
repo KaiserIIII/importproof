@@ -1,0 +1,170 @@
+{
+  "scope": "Original real Calc exports of deliberately authored nonprivate inputs; no sanitized/reconstructed XLSX outputs",
+  "files": [
+    {
+      "path": "control-source.csv",
+      "bytes": 58,
+      "sha256": "1eeccdbb3c7d76685b3f64c583422a2086e4e0c920f68875e7790acaf5148ae1"
+    },
+    {
+      "path": "risk-source.csv",
+      "bytes": 338,
+      "sha256": "2fcec9a8ebfc1a3aa6d85f0eb2bec9f79219ab4e08b03cb45f1f600e519c2d8c"
+    },
+    {
+      "path": "control-default/audit-csv.json",
+      "bytes": 1876,
+      "sha256": "b081a233b9b75ec8e433c3f514d34ae5a88b271f99405b4070b207a580746c29"
+    },
+    {
+      "path": "control-default/audit-xlsx.json",
+      "bytes": 5801,
+      "sha256": "47f878aa4f43e5fdf3caacb3aa1435a8085659d346fb5e1bfe7f33b639a252dc"
+    },
+    {
+      "path": "control-default/audit.csv",
+      "bytes": 49,
+      "sha256": "b16da70cf1d1e75f24f5ef6a8753cd9ab6a0e73a2625abbb1ec61f66b1b98efd"
+    },
+    {
+      "path": "control-default/audit.html",
+      "bytes": 4109,
+      "sha256": "da4a82266b9682854d170ed0775feaaa2be90f7d1c7a30f802d738e4fe368345"
+    },
+    {
+      "path": "control-default/conversion.json",
+      "bytes": 2477,
+      "sha256": "64a067b0a3716c2d62c649d9a7bf01390098f792b948dfa5a786a8165e390402"
+    },
+    {
+      "path": "control-default/export.csv",
+      "bytes": 55,
+      "sha256": "af2b3d823902fa2101c83e7ae10d554701287429ff21b9a2b5bab999e27d9fe6"
+    },
+    {
+      "path": "control-default/export.xlsx",
+      "bytes": 5803,
+      "sha256": "5341928d0ad57bb19c7e609779ee1df3950c3f41a67c7a96c04096aa3b04c31c"
+    },
+    {
+      "path": "control-text/audit-csv.json",
+      "bytes": 1876,
+      "sha256": "b081a233b9b75ec8e433c3f514d34ae5a88b271f99405b4070b207a580746c29"
+    },
+    {
+      "path": "control-text/audit-xlsx.json",
+      "bytes": 5801,
+      "sha256": "31ef5fefafd5ecb0c48f2b9003112156aa2e549079402e61128633029b1b652c"
+    },
+    {
+      "path": "control-text/conversion.json",
+      "bytes": 2622,
+      "sha256": "acc9c53c6d1bdfac08df42117684740ce3f11995d2df0d65cef30b6b722923b3"
+    },
+    {
+      "path": "control-text/export.csv",
+      "bytes": 55,
+      "sha256": "af2b3d823902fa2101c83e7ae10d554701287429ff21b9a2b5bab999e27d9fe6"
+    },
+    {
+      "path": "control-text/export.xlsx",
+      "bytes": 5803,
+      "sha256": "2ec9a3a4d87d4124d2cf2384144dd9dc19a20cf24cbf190fc3f6ba96731c74a1"
+    },
+    {
+      "path": "risk-default/audit-csv.json",
+      "bytes": 23342,
+      "sha256": "f467ee049c208f01315cd0e3f6b2bdf93c2e08e0e88693112d3bc1257d925c65"
+    },
+    {
+      "path": "risk-default/audit-xlsx.json",
+      "bytes": 31616,
+      "sha256": "767bb1cb2fbe008d089d1b3224371289f8cc8c0a545684714f4552967e549643"
+    },
+    {
+      "path": "risk-default/audit.csv",
+      "bytes": 17058,
+      "sha256": "1d589e8f63963191887831377cfe46fee383a95f20ee9c0f0c2fd5bd5ae665d6"
+    },
+    {
+      "path": "risk-default/audit.html",
+      "bytes": 59311,
+      "sha256": "a7086d2a3631297013a057f7e94d9b46f882538d23bc4e4baac547b67286cdb6"
+    },
+    {
+      "path": "risk-default/conversion.json",
+      "bytes": 9069,
+      "sha256": "a8885fc4f212fa814218993505e9043391673b173b6d4f51f200d5a20850f59e"
+    },
+    {
+      "path": "risk-default/export.csv",
+      "bytes": 304,
+      "sha256": "c69fd22a5d44af03ed3b55d3f57ea183e2d382e80c934678175881113eb16d83"
+    },
+    {
+      "path": "risk-default/export.xlsx",
+      "bytes": 6312,
+      "sha256": "6d3f7bde979ebd543d95f093efd49e78c21959a331cfbd7405473d807c944603"
+    },
+    {
+      "path": "risk-special/audit-csv.json",
+      "bytes": 23283,
+      "sha256": "403cc7d6738e7f47042bff873f6bbaa8e05f3ec173ed1eba7e545d0df2be7a5b"
+    },
+    {
+      "path": "risk-special/audit-xlsx.json",
+      "bytes": 33799,
+      "sha256": "9857ebb396ea4032b462ec0f5511813bc07f9d8b6accc814803f9a7e45ca32fd"
+    },
+    {
+      "path": "risk-special/conversion.json",
+      "bytes": 9140,
+      "sha256": "922c33081cb511b905a491a18c26ef93ad366c7946998c8abee57f6c017342be"
+    },
+    {
+      "path": "risk-special/export.csv",
+      "bytes": 300,
+      "sha256": "53c9ba83ff8d7b991d0659b1e38bc5166cbdbccec1908cf6f96f814f05622546"
+    },
+    {
+      "path": "risk-special/export.xlsx",
+      "bytes": 6335,
+      "sha256": "30bf73778ff842b9bcdae6001b8a6cde3c47736480f41b54389f4f90698b4131"
+    },
+    {
+      "path": "risk-text/audit-csv.json",
+      "bytes": 5174,
+      "sha256": "53aa66e2000eb92bbcf52ca458e2043c7428b8b88c846491a13bf688b1a71dc0"
+    },
+    {
+      "path": "risk-text/audit-xlsx.json",
+      "bytes": 11735,
+      "sha256": "a36438467c25c607dab77d5945dc1f4d2a2b01d91afa47b29d4b5703768b01de"
+    },
+    {
+      "path": "risk-text/audit.csv",
+      "bytes": 2585,
+      "sha256": "346e08c3debe652a891462314cf0618d3c1f355ccd66238b82a6ca989bf92493"
+    },
+    {
+      "path": "risk-text/audit.html",
+      "bytes": 12338,
+      "sha256": "27e5cb278521598ee88c25928c106b03e3597d0868f4846603c44356c93deaee"
+    },
+    {
+      "path": "risk-text/conversion.json",
+      "bytes": 9155,
+      "sha256": "ba173d46e8eb1f18bc28381e8c59906d73ebed0d445eac8b69c9f5d667e87780"
+    },
+    {
+      "path": "risk-text/export.csv",
+      "bytes": 327,
+      "sha256": "af011d9045995872520d2c95d5e2a3cd2501923d4b743215d5cf108117ee40e0"
+    },
+    {
+      "path": "risk-text/export.xlsx",
+      "bytes": 6317,
+      "sha256": "936cac7b0dda0a8f00cc97c720dea7d2fc192d3fce080095797ab79dbfd7a235"
+    }
+  ]
+}

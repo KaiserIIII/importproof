@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "inputs": {
+    "before": {
+      "format": "csv",
+      "sha256": "1eeccdbb3c7d76685b3f64c583422a2086e4e0c920f68875e7790acaf5148ae1",
+      "bytes": 58,
+      "metadata": {
+        "encoding": "utf-8-sig",
+        "delimiter": ",",
+        "quotechar": "\"",
+        "header_source": {
+          "line_start": 1,
+          "line_end": 1,
+          "raw_record": "row_id,value,note\r\n"
+        }
+      }
+    },
+    "after": {
+      "format": "xlsx",
+      "sha256": "2ec9a3a4d87d4124d2cf2384144dd9dc19a20cf24cbf190fc3f6ba96731c74a1",
+      "bytes": 5803,
+      "metadata": {
+        "date_epoch": "1899-12-30T00:00:00",
+        "formulas_evaluated": false,
+        "styles_sha256": "cf8971733777c5036bf3eb2dfca74462cb81394df30daabfa02fbb9b1958e9cb"
+      }
+    }
+  },
+  "policy": {
+    "keys": [
+      "row_id"
+    ],
+    "ignore_order": false,
+    "text_columns": [],
+    "numeric_columns": [],
+    "date_columns": [],
+    "ignore_columns": [],
+    "date_formats": [
+      "%Y-%m-%d",
+      "%Y-%m-%dT%H:%M:%S"
+    ],
+    "trim_whitespace": false,
+    "unicode_normalization": "none",
+    "null_tokens": [],
+    "column_map": {},
+    "before": {},
+    "after": {},
+    "before_sheet": null,
+    "after_sheet": null
+  },
+  "assumptions": [
+    "Input origins and before/after roles are caller supplied; hashes identify bytes only.",
+    "Observed difference does not establish intent or which application caused it.",
+    "Header is the first record; all default sheets compared. No fuzzy identity matching."
+  ],
+  "findings": [
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_WORKBOOK_CONSTRUCT",
+      "message": "after: Workbook construct is not interpreted.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_WORKBOOK_CONSTRUCT",
+        "message": "Workbook construct is not interpreted.",
+        "construct": "workbookProtection"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_WORKBOOK_CONSTRUCT",
+      "message": "after: Workbook construct is not interpreted.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_WORKBOOK_CONSTRUCT",
+        "message": "Workbook construct is not interpreted.",
+        "construct": "extLst"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+      "message": "after: Worksheet construct is not rendered.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+        "message": "Worksheet construct is not rendered.",
+        "construct": "cols"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+      "message": "after: Worksheet construct is not rendered.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+        "message": "Worksheet construct is not rendered.",
+        "construct": "printOptions"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+      "message": "after: Worksheet construct is not rendered.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+        "message": "Worksheet construct is not rendered.",
+        "construct": "pageSetup"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+      "message": "after: Worksheet construct is not rendered.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_SHEET_CONSTRUCT",
+        "message": "Worksheet construct is not rendered.",
+        "construct": "headerFooter"
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+      "message": "after: Row presentation attributes are retained as metadata only.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+        "message": "Row presentation attributes are retained as metadata only.",
+        "row": 1,
+        "attributes": {
+          "r": "1",
+          "customFormat": "false",
+          "ht": "12.8",
+          "hidden": "false",
+          "customHeight": "false",
+          "outlineLevel": "0",
+          "collapsed": "false"
+        }
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+      "message": "after: Row presentation attributes are retained as metadata only.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+        "message": "Row presentation attributes are retained as metadata only.",
+        "row": 2,
+        "attributes": {
+          "r": "2",
+          "customFormat": "false",
+          "ht": "12.8",
+          "hidden": "false",
+          "customHeight": "false",
+          "outlineLevel": "0",
+          "collapsed": "false"
+        }
+      }
+    },
+    {
+      "verdict": "UNKNOWN",
+      "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+      "message": "after: Row presentation attributes are retained as metadata only.",
+      "table": "data",
+      "before": null,
+      "after": {
+        "code": "UNSUPPORTED_ROW_ATTRIBUTES",
+        "message": "Row presentation attributes are retained as metadata only.",
+        "row": 3,
+        "attributes": {
+          "r": "3",
+          "customFormat": "false",
+          "ht": "12.8",
+          "hidden": "false",
+          "customHeight": "false",
+          "outlineLevel": "0",
+          "collapsed": "false"
+        }
+      }
+    }
+  ],
+  "truncated": false,
+  "summary": {
+    "CONFIRMED_LOSS": 0,
+    "SUSPECTED_CONVERSION": 0,
+    "EQUIVALENT": 0,
+    "UNKNOWN": 9
+  },
+  "verdict": "UNKNOWN"
+}

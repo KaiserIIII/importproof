@@ -1,0 +1,390 @@
+{
+  "mode": "special",
+  "requested_filter_options": "44,34,76,1,,1033,false,true,true,false,false,0,false,false,true",
+  "actual_document_args": {
+    "FilterName": "Text - txt - csv (StarCalc)",
+    "FilterOptions": "44,34,76,1,,1033,false,true,true,false,false,0,false,true,true",
+    "ReadOnly": true,
+    "Hidden": true
+  },
+  "sheet_names": [
+    "risk-source"
+  ],
+  "rows": 4,
+  "columns": 10,
+  "macro_execution": "NEVER_EXECUTE",
+  "update_document": "NO_UPDATE",
+  "headless": true,
+  "csv_export_filter_options": "44,34,76,1,,1033,false,true,true,false,false,0,false,false",
+  "cells": [
+    [
+      {
+        "row": 1,
+        "column": 1,
+        "type": "TEXT",
+        "string": "row_id",
+        "value_repr": null,
+        "formula": "row_id",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "type": "TEXT",
+        "string": "business_id",
+        "value_repr": null,
+        "formula": "business_id",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 3,
+        "type": "TEXT",
+        "string": "leading_zero",
+        "value_repr": null,
+        "formula": "leading_zero",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 4,
+        "type": "TEXT",
+        "string": "twenty_digit",
+        "value_repr": null,
+        "formula": "twenty_digit",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 5,
+        "type": "TEXT",
+        "string": "scientific_text",
+        "value_repr": null,
+        "formula": "scientific_text",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 6,
+        "type": "TEXT",
+        "string": "date_text",
+        "value_repr": null,
+        "formula": "date_text",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 7,
+        "type": "TEXT",
+        "string": "chinese",
+        "value_repr": null,
+        "formula": "chinese",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 8,
+        "type": "TEXT",
+        "string": "nullable",
+        "value_repr": null,
+        "formula": "nullable",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 9,
+        "type": "TEXT",
+        "string": "quoted_empty",
+        "value_repr": null,
+        "formula": "quoted_empty",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 10,
+        "type": "TEXT",
+        "string": "spaces",
+        "value_repr": null,
+        "formula": "spaces",
+        "number_format": "常规"
+      }
+    ],
+    [
+      {
+        "row": 2,
+        "column": 1,
+        "type": "TEXT",
+        "string": "r1",
+        "value_repr": null,
+        "formula": "r1",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 2,
+        "type": "TEXT",
+        "string": "dup",
+        "value_repr": null,
+        "formula": "dup",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 3,
+        "type": "VALUE",
+        "string": "123",
+        "value_repr": "123.0",
+        "formula": "123",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 4,
+        "type": "VALUE",
+        "string": "1.23456789012346E+019",
+        "value_repr": "1.2345678901234567e+19",
+        "formula": "1.23456789012346E+019",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 5,
+        "type": "VALUE",
+        "string": "1.00E+10",
+        "value_repr": "10000000000.0",
+        "formula": "10000000000",
+        "number_format": "0.00E+00"
+      },
+      {
+        "row": 2,
+        "column": 6,
+        "type": "VALUE",
+        "string": "2026-10-18",
+        "value_repr": "46313.0",
+        "formula": "46313",
+        "number_format": "YYYY-MM-DD"
+      },
+      {
+        "row": 2,
+        "column": 7,
+        "type": "TEXT",
+        "string": "中文测试",
+        "value_repr": null,
+        "formula": "中文测试",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 8,
+        "type": "EMPTY",
+        "string": "",
+        "value_repr": null,
+        "formula": "",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 9,
+        "type": "EMPTY",
+        "string": "",
+        "value_repr": null,
+        "formula": "",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 10,
+        "type": "TEXT",
+        "string": " padded ",
+        "value_repr": null,
+        "formula": " padded ",
+        "number_format": "常规"
+      }
+    ],
+    [
+      {
+        "row": 3,
+        "column": 1,
+        "type": "TEXT",
+        "string": "r2",
+        "value_repr": null,
+        "formula": "r2",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 2,
+        "type": "TEXT",
+        "string": "dup",
+        "value_repr": null,
+        "formula": "dup",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 3,
+        "type": "VALUE",
+        "string": "0",
+        "value_repr": "0.0",
+        "formula": "0",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 4,
+        "type": "VALUE",
+        "string": "1E+020",
+        "value_repr": "1e+20",
+        "formula": "1E+020",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 5,
+        "type": "VALUE",
+        "string": "1.00E-05",
+        "value_repr": "1e-05",
+        "formula": "0.00001",
+        "number_format": "0.00E+00"
+      },
+      {
+        "row": 3,
+        "column": 6,
+        "type": "VALUE",
+        "string": "26/1/2",
+        "value_repr": "46024.0",
+        "formula": "46024",
+        "number_format": "YY/M/D"
+      },
+      {
+        "row": 3,
+        "column": 7,
+        "type": "TEXT",
+        "string": "漢字😀",
+        "value_repr": null,
+        "formula": "漢字😀",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 8,
+        "type": "TEXT",
+        "string": "NULL",
+        "value_repr": null,
+        "formula": "NULL",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 9,
+        "type": "EMPTY",
+        "string": "",
+        "value_repr": null,
+        "formula": "",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 10,
+        "type": "TEXT",
+        "string": "tail",
+        "value_repr": null,
+        "formula": "tail",
+        "number_format": "常规"
+      }
+    ],
+    [
+      {
+        "row": 4,
+        "column": 1,
+        "type": "TEXT",
+        "string": "r3",
+        "value_repr": null,
+        "formula": "r3",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 2,
+        "type": "TEXT",
+        "string": "b3",
+        "value_repr": null,
+        "formula": "b3",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 3,
+        "type": "VALUE",
+        "string": "1230",
+        "value_repr": "1230.0",
+        "formula": "1230",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 4,
+        "type": "VALUE",
+        "string": "1E+019",
+        "value_repr": "1e+19",
+        "formula": "1E+019",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 5,
+        "type": "VALUE",
+        "string": "1.00E+20",
+        "value_repr": "1e+20",
+        "formula": "1E+020",
+        "number_format": "0.00E+00"
+      },
+      {
+        "row": 4,
+        "column": 6,
+        "type": "TEXT",
+        "string": "2026/10/19",
+        "value_repr": null,
+        "formula": "2026/10/19",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 7,
+        "type": "TEXT",
+        "string": "café组合",
+        "value_repr": null,
+        "formula": "café组合",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 8,
+        "type": "EMPTY",
+        "string": "",
+        "value_repr": null,
+        "formula": "",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 9,
+        "type": "EMPTY",
+        "string": "",
+        "value_repr": null,
+        "formula": "",
+        "number_format": "常规"
+      },
+      {
+        "row": 4,
+        "column": 10,
+        "type": "TEXT",
+        "string": "last",
+        "value_repr": null,
+        "formula": "last",
+        "number_format": "常规"
+      }
+    ]
+  ],
+  "status": "PASS"
+}

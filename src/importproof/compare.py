@@ -91,6 +91,13 @@ def _raw_key(cell):
     return cell["kind"], cell["raw"]
 
 
+def _formula_like_text(cell):
+    raw = cell['raw']
+    return (cell['kind'] == 'text' and isinstance(raw, str)
+            and raw.lstrip().startswith(('=', '@', '+', '-'))
+            and not re.fullmatch(r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?', raw))
+
+
 def _semantic(cell, mode, p):
     if cell["kind"] in ("formula", "error", "missing"):
         raise ValueError("formula, error or absent cell needs review")
@@ -187,6 +194,12 @@ def compare_documents(before, after, options=None):
             emit("EQUIVALENT" if p["ignore_order"] else "CONFIRMED_LOSS", "COLUMN_ORDER_CHANGED", "Exact columns were reordered", table)
         for i, j in colmap.items():
             bh, ah = btable['headers'][i], atable['headers'][j]
+            if i not in ignored and any(_formula_like_text(c) for c in (bh, ah)):
+                emit('UNKNOWN', 'FORMULA_LIKE_TEXT', 'Header text could be interpreted as a formula by a later spreadsheet importer; never executed here', table,
+                     {'row': 1, 'column': bn[i], 'column_index': i+1, 'sheet': btable['name'], 'cell': bh,
+                      'source': before.get('metadata', {}).get('header_source', {'sheet': btable['name'], 'row': 1})},
+                     {'row': 1, 'column': an[j], 'column_index': j+1, 'sheet': atable['name'], 'cell': ah,
+                      'source': after.get('metadata', {}).get('header_source', {'sheet': atable['name'], 'row': 1})})
             if i not in ignored and bh['kind'] in ('number','date') and ah['kind']==bh['kind'] and bh.get('format') != ah.get('format'):
                 emit('UNKNOWN', 'HEADER_DISPLAY_FORMAT_CHANGED', 'Header display format changed; name alignment does not certify rendered header fidelity', table,
                      {'row': 1, 'column': bn[i], 'column_index': i+1, 'cell': bh},
@@ -285,7 +298,7 @@ def compare_documents(before, after, options=None):
             for i, j in selected:
                 b, a = evidence(brow, i, table, bn), evidence(arow, j, atable["name"], an)
                 bc, ac = b["cell"], a["cell"]
-                if any(c["kind"] == "text" and isinstance(c["raw"], str) and c["raw"].lstrip().startswith(("=", "@", "+", "-")) and not re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", c["raw"]) for c in (bc, ac)):
+                if any(_formula_like_text(c) for c in (bc, ac)):
                     emit("UNKNOWN", "FORMULA_LIKE_TEXT", "Text could be interpreted as a formula by a later spreadsheet importer; never executed here", table, b, a)
                 if bc["kind"] in ("formula", "error", "missing") or ac["kind"] in ("formula", "error", "missing"):
                     emit("UNKNOWN", "FORMULA_OR_UNAVAILABLE_CELL", "Formula/error/absent cell is never evaluated or certified equal", table, b, a)

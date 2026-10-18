@@ -169,6 +169,22 @@ class ComparisonTests(unittest.TestCase):
         a['tables'][0]['headers'][0]['format']='General'
         self.assertEqual(compare_documents(b,a,{})['verdict'],'UNKNOWN')
 
+    def test_formula_like_csv_headers_require_review_but_plain_numbers_do_not(self):
+        from importproof.readers import read_document
+        for header in ('=1+1', '@SUM(A1)', '+SUM(A1)', '-SUM(A1)', ' =1+1'):
+            with self.subTest(header=header):
+                d = read_document((header + '\nplain\n').encode(), 'header.csv')
+                report = compare_documents(d, d)
+                self.assertEqual(report['verdict'], 'UNKNOWN')
+                finding = next(f for f in report['findings'] if f['code'] == 'FORMULA_LIKE_TEXT')
+                self.assertEqual(finding['before']['row'], 1)
+                self.assertEqual(finding['before']['cell']['raw'], header)
+                self.assertEqual(compare_documents(d, d, {'ignore_columns': ['#1']})['verdict'], 'EQUIVALENT')
+        for header in ('-12', '+12.5', '1E10', 'normal'):
+            with self.subTest(header=header):
+                d = read_document((header + '\nplain\n').encode(), 'header.csv')
+                self.assertEqual(compare_documents(d, d)['verdict'], 'EQUIVALENT')
+
 
 if __name__ == "__main__":
     unittest.main()

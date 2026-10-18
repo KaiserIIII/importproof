@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;unsafe-inline&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;"><title>ImportProof evidence report</title><style>body{font:16px/1.55 system-ui,sans-serif;color:#1b2939;background:#f4f7fb;margin:0}main{max-width:1100px;margin:auto;padding:36px 24px}h1{letter-spacing:-.04em}article,details.panel{background:white;border:1px solid #ced9e6;border-radius:12px;padding:20px;margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5fa;padding:14px;border-radius:8px;font-size:13px}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}li{margin:6px 0}summary{cursor:pointer;font-weight:600}@media(max-width:700px){.evidence{grid-template-columns:1fr}}</style></head><body><main><p>IMPORTPROOF · LOCAL EVIDENCE REPORT</p><h1>EQUIVALENT</h1><p>Observed differences under the recorded rules. Findings do not establish software causality or business intent.</p><ul><li><strong>CONFIRMED LOSS</strong> 0</li><li><strong>SUSPECTED CONVERSION</strong> 0</li><li><strong>EQUIVALENT</strong> 0</li><li><strong>UNKNOWN</strong> 0</li></ul><p>Truncated: False</p><details class="panel" open><summary>Inputs, policy and assumptions</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;inputs&quot;: {
+    &quot;before&quot;: {
+      &quot;format&quot;: &quot;csv&quot;,
+      &quot;sha256&quot;: &quot;1eeccdbb3c7d76685b3f64c583422a2086e4e0c920f68875e7790acaf5148ae1&quot;,
+      &quot;bytes&quot;: 58,
+      &quot;metadata&quot;: {
+        &quot;encoding&quot;: &quot;utf-8-sig&quot;,
+        &quot;delimiter&quot;: &quot;,&quot;,
+        &quot;quotechar&quot;: &quot;\&quot;&quot;,
+        &quot;header_source&quot;: {
+          &quot;line_start&quot;: 1,
+          &quot;line_end&quot;: 1,
+          &quot;raw_record&quot;: &quot;row_id,value,note\r\n&quot;
+        }
+      }
+    },
+    &quot;after&quot;: {
+      &quot;format&quot;: &quot;csv&quot;,
+      &quot;sha256&quot;: &quot;af2b3d823902fa2101c83e7ae10d554701287429ff21b9a2b5bab999e27d9fe6&quot;,
+      &quot;bytes&quot;: 55,
+      &quot;metadata&quot;: {
+        &quot;encoding&quot;: &quot;utf-8-sig&quot;,
+        &quot;delimiter&quot;: &quot;,&quot;,
+        &quot;quotechar&quot;: &quot;\&quot;&quot;,
+        &quot;header_source&quot;: {
+          &quot;line_start&quot;: 1,
+          &quot;line_end&quot;: 1,
+          &quot;raw_record&quot;: &quot;row_id,value,note\r\n&quot;
+        }
+      }
+    }
+  },
+  &quot;policy&quot;: {
+    &quot;keys&quot;: [
+      &quot;row_id&quot;
+    ],
+    &quot;ignore_order&quot;: false,
+    &quot;text_columns&quot;: [],
+    &quot;numeric_columns&quot;: [],
+    &quot;date_columns&quot;: [],
+    &quot;ignore_columns&quot;: [],
+    &quot;date_formats&quot;: [
+      &quot;%Y-%m-%d&quot;,
+      &quot;%Y-%m-%dT%H:%M:%S&quot;
+    ],
+    &quot;trim_whitespace&quot;: false,
+    &quot;unicode_normalization&quot;: &quot;none&quot;,
+    &quot;null_tokens&quot;: [],
+    &quot;column_map&quot;: {},
+    &quot;before&quot;: {},
+    &quot;after&quot;: {},
+    &quot;before_sheet&quot;: null,
+    &quot;after_sheet&quot;: null
+  },
+  &quot;assumptions&quot;: [
+    &quot;Input origins and before/after roles are caller supplied; hashes identify bytes only.&quot;,
+    &quot;Observed difference does not establish intent or which application caused it.&quot;,
+    &quot;Header is the first record; all default sheets compared. No fuzzy identity matching.&quot;,
+    &quot;No disallowed differences observed within supported data and explicit scope.&quot;
+  ],
+  &quot;truncated&quot;: false,
+  &quot;summary&quot;: {
+    &quot;CONFIRMED_LOSS&quot;: 0,
+    &quot;SUSPECTED_CONVERSION&quot;: 0,
+    &quot;EQUIVALENT&quot;: 0,
+    &quot;UNKNOWN&quot;: 0
+  },
+  &quot;verdict&quot;: &quot;EQUIVALENT&quot;
+}</pre></details><h2>Findings</h2><p>No findings. Review the recorded policy and assumptions above.</p></main></body></html>

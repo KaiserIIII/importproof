@@ -1,0 +1,94 @@
+verdict,code,message,table,before,after,details
+CONFIRMED_LOSS,EMPTY_NULL_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,\""\"",\"" padded \""\r\n""
+  },
+  ""cell"": {
+    ""raw"": """",
+    ""kind"": ""empty"",
+    ""coordinate"": ""I2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""r1,dup,00123,12345678901234567890,1E10,2026-10-18,中文测试,,, padded \r\n""
+  },
+  ""cell"": {
+    ""raw"": null,
+    ""kind"": ""blank"",
+    ""coordinate"": ""I2""
+  }
+}",{}
+CONFIRMED_LOSS,EMPTY_NULL_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 3,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,\""\"",tail\r\n""
+  },
+  ""cell"": {
+    ""raw"": """",
+    ""kind"": ""empty"",
+    ""coordinate"": ""I3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""r2,dup,00000,99999999999999999999,1e-05,01/02/2026,漢字😀,NULL,,tail\r\n""
+  },
+  ""cell"": {
+    ""raw"": null,
+    ""kind"": ""blank"",
+    ""coordinate"": ""I3""
+  }
+}",{}
+CONFIRMED_LOSS,EMPTY_NULL_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 4,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 4,
+    ""line_end"": 4,
+    ""raw_record"": ""r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,\""\"",last\r\n""
+  },
+  ""cell"": {
+    ""raw"": """",
+    ""kind"": ""empty"",
+    ""coordinate"": ""I4""
+  }
+}","{
+  ""row"": 4,
+  ""column"": ""quoted_empty"",
+  ""column_index"": 9,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 4,
+    ""line_end"": 4,
+    ""raw_record"": ""r3,b3,01230,10000000000000000001,1E20,2026/10/19,café组合,,,last\r\n""
+  },
+  ""cell"": {
+    ""raw"": null,
+    ""kind"": ""blank"",
+    ""coordinate"": ""I4""
+  }
+}",{}

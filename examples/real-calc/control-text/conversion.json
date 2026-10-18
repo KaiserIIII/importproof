@@ -1,0 +1,109 @@
+{
+  "mode": "text",
+  "requested_filter_options": "44,34,76,1,1/2/2/2/3/2/4/2/5/2/6/2/7/2/8/2/9/2/10/2,1033,false,false,true,false,false,0,false,false,false",
+  "actual_document_args": {
+    "FilterName": "Text - txt - csv (StarCalc)",
+    "FilterOptions": "44,34,76,1,1/2/2/2/3/2/4/2/5/2/6/2/7/2/8/2/9/2/10/2,1033,false,false,true,false,false,0,false,true,false",
+    "ReadOnly": true,
+    "Hidden": true
+  },
+  "sheet_names": [
+    "control-source"
+  ],
+  "rows": 3,
+  "columns": 3,
+  "macro_execution": "NEVER_EXECUTE",
+  "update_document": "NO_UPDATE",
+  "headless": true,
+  "csv_export_filter_options": "44,34,76,1,,1033,false,true,true,false,false,0,false,false",
+  "cells": [
+    [
+      {
+        "row": 1,
+        "column": 1,
+        "type": "TEXT",
+        "string": "row_id",
+        "value_repr": null,
+        "formula": "row_id",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "type": "TEXT",
+        "string": "value",
+        "value_repr": null,
+        "formula": "value",
+        "number_format": "常规"
+      },
+      {
+        "row": 1,
+        "column": 3,
+        "type": "TEXT",
+        "string": "note",
+        "value_repr": null,
+        "formula": "note",
+        "number_format": "常规"
+      }
+    ],
+    [
+      {
+        "row": 2,
+        "column": 1,
+        "type": "TEXT",
+        "string": "r1",
+        "value_repr": null,
+        "formula": "r1",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 2,
+        "type": "TEXT",
+        "string": "alpha",
+        "value_repr": null,
+        "formula": "alpha",
+        "number_format": "常规"
+      },
+      {
+        "row": 2,
+        "column": 3,
+        "type": "TEXT",
+        "string": "中文",
+        "value_repr": null,
+        "formula": "中文",
+        "number_format": "常规"
+      }
+    ],
+    [
+      {
+        "row": 3,
+        "column": 1,
+        "type": "TEXT",
+        "string": "r2",
+        "value_repr": null,
+        "formula": "r2",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 2,
+        "type": "TEXT",
+        "string": "beta",
+        "value_repr": null,
+        "formula": "beta",
+        "number_format": "常规"
+      },
+      {
+        "row": 3,
+        "column": 3,
+        "type": "TEXT",
+        "string": "café😀",
+        "value_repr": null,
+        "formula": "café😀",
+        "number_format": "常规"
+      }
+    ]
+  ],
+  "status": "PASS"
+}

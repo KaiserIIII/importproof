@@ -6,3 +6,6 @@ examples/*.csv -text
 examples/*.tsv -text
 examples/reports/** -text
 examples/reports/**/*.csv -diff
+examples/real-calc/** -text
+examples/real-calc/**/*.csv -diff
+examples/real-calc/**/*.json whitespace=cr-at-eol
