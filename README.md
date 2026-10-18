@@ -1,20 +1,40 @@
 # ImportProof
 
+[![Windows and Linux source checks](https://github.com/KaiserIIII/importproof/actions/workflows/tests.yml/badge.svg)](https://github.com/KaiserIIII/importproof/actions/workflows/tests.yml)
+
 Compare the table you started with against the file you received. Keep the original values, the comparison rules and the evidence for every finding.
 
 ImportProof is a local CSV, TSV and XLSX import-fidelity review tool for Windows and Linux. It detects observed changes and flags patterns consistent with accidental conversions. It cannot identify which application changed a file, prove intent, recover overwritten data, or certify a whole business migration.
 
 [中文使用说明](docs/USER_GUIDE_ZH.md) · [Comparison contract](docs/COMPARISON_CONTRACT.md) · [Competitors and executed baselines](docs/COMPETITORS.md) · [Acceptance](docs/ACCEPTANCE.md) · [Security](docs/SECURITY.md)
 
-![Actual local browser report](docs/images/browser-actual.png)
+![Actual local browser report for the real Calc export](docs/images/real-calc-browser.png)
 
 Source candidate 0.1.0: **79 tests passed in each fresh Windows and isolated Linux environment**. Real LibreOffice 26.2.5.2 imports/exports and browser checks against both platform servers were executed. [Executed scope and NOT RUN items](PUBLICATION_READINESS.md).
 
 **Experimental scope: ordinary real Calc XLSX files, including an unchanged text control, can return UNKNOWN due unsupported metadata. Normal CSV controls passed.** [Real conversion results](REAL_CONVERSION_RESULTS.md) · [Readiness and remaining limits](PUBLICATION_READINESS.md).
 
+## What happened in real Calc
+
+LibreOffice Calc **26.2.5.2** actually imported the controlled source CSV using default, explicit-text and special-number options, then saved CSV and XLSX. The five-case campaign produced ten original exports through the real headless UNO application, with cell types, import options and hashes retained. It was not an interactive GUI test or a production migration.
+
+| Original field | Default Calc CSV export | Explicit text-column export |
+| --- | --- | --- |
+| Leading zeros: `00123` | `123` | `00123` |
+| 20-digit ID: `12345678901234567890` | `1.23456789012346E+019` | Original 20 digits |
+| Scientific-looking text: `1E10` | `10000000000` | `1E10` |
+| Quoted empty string | Unquoted empty | Unquoted empty |
+
+ImportProof retained evidence for all 28 observed lexical CSV changes across the three risk pairs. Both normal text CSV controls were EQUIVALENT. The text-protected risk CSV still had three strict empty-representation findings; only an explicitly selected `null_tokens: [""]` policy made that pair equivalent. All five actual XLSX exports remained UNKNOWN; observed numeric/type changes were retained alongside uncertainty. These small controlled cases are not a broad accuracy estimate. [Exact options, original exports, reports and csv-diff/daff comparisons](REAL_CONVERSION_RESULTS.md).
+
 ## Install and run
 
 Use **Python 3.13** and a fresh environment in this source directory. Python 3.12 is unsupported: its `csv.QUOTE_NOTNULL` reader does not preserve the quoted-empty distinction needed here. Dependencies are pinned by version and wheel hash; source revisions and licenses are recorded in [the dependency inventory](docs/DEPENDENCIES.json). Initial installation requires internet access unless the locked wheels are already available; runtime performs no external requests.
+
+```sh
+git clone https://github.com/KaiserIIII/importproof.git
+cd importproof
+```
 
 Windows PowerShell:
 
@@ -40,9 +60,13 @@ This installs a normal package, not an editable checkout: reinstall it after sou
 
 ## CLI
 
+Audit the checked-in original Calc export after installation:
+
 ```powershell
-.\.venv\Scripts\python.exe -m importproof compare examples/before.csv examples/after-controlled.tsv --policy examples/strict-policy.json --output output-demo
+.\.venv\Scripts\python.exe -m importproof compare examples/real-calc/risk-source.csv examples/real-calc/risk-default/export.csv --keys row_id --output output-calc
 ```
+
+This deliberately returns **2** because it finds changes and writes `report.json`, `report.html` and `report.csv`. For the normal real-Calc control, compare `examples/real-calc/control-source.csv` with `examples/real-calc/control-default/export.csv` using `--keys row_id`; that returns **0**. In the Web UI, upload the same pair and enter `row_id` as the key. Recreate the application exports with the optional [real Calc runner](REAL_CONVERSION_RESULTS.md#recorded-options-and-reproduction), which requires a separate LibreOffice installation.
 
 Use `.venv/bin/python` on Linux. The output directory must be new and its parent must exist. Standard output is one JSON report; standard error contains errors or the output location. Exit **0** means equivalent under the recorded rules, **2** means findings or unresolved uncertainty, **1** means invalid input/processing/output failure. Argument syntax errors use argparse exit2. Check JSON as well as the exit status.
 
@@ -107,6 +131,8 @@ python tools/resource_checks.py output-resources
 ```
 
 Examples use explicitly controlled, nonprivate data. `sqlite-before.csv` and `sqlite-after.csv` came from a real documented SQLite typed import/export. The legacy `before.csv`/`after-controlled.tsv` and two small XLSX fixtures contain deliberately authored changes. The separate `examples/real-calc/` folder contains original files actually exported by Calc. [Provenance](examples/PROVENANCE.md) and actual reports distinguish these sources. **Real headless LibreOffice Calc conversion now ran** on controlled inputs; [exact results/options and actual exports](REAL_CONVERSION_RESULTS.md). Excel, interactive Office GUI and production imports remain NOT RUN. Actual Chromium checks against both installed platform servers are separate from tests and hosted CI; [current acceptance](PUBLICATION_READINESS.md) states what ran, and [historical acceptance](docs/ACCEPTANCE.md) preserves the earlier evidence.
+
+GitHub Actions runs the full source test suite and installed CLI checks on Windows and Linux, including replay of frozen real-export fixtures. It does not run Office or replace real GUI/application acceptance. **Excel GUI and production migrations are unverified; Windows has no hard worker memory quota.** This tool does not certify complete workbook equivalence.
 
 CSV/table diffs and semantic comparison are established capabilities. Executed csv-diff/daff baselines detect most ordinary changes. ImportProof combines explicit policies, original-cell evidence and conservative verdicts into one local workflow; no algorithmic novelty or broad superiority is claimed. [Detailed overlap and results](docs/COMPETITORS.md).
 

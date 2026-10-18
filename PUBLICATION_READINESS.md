@@ -1,6 +1,6 @@
 # Publication readiness — experimental source candidate
 
-**Decision: READY_WITH_LIMITATIONS.** The source candidate is usable and reproducible within the explicit scope below. It is not an unqualified workbook-fidelity certification. No remote repository, push, Release, PyPI upload or deployment was performed. The user must separately authorize any publication.
+**Decision: READY_WITH_LIMITATIONS.** The experimental source is public at [KaiserIIII/importproof](https://github.com/KaiserIIII/importproof) following the owner's explicit authorization. It is usable and reproducible within the scope below, not an unqualified workbook-fidelity certification. No official Release, PyPI package or public service was published/deployed.
 
 | Gate | Actual result |
 | --- | --- |
@@ -16,9 +16,9 @@
 | Independent review | One demonstrated P2 resolved and rechecked; no unresolved demonstrated P1/P2 in bounded review |
 | Identity | Authenticated GitHub user KaiserIIII id104786001 matches local Author/Committer noreply identity; no dummy authors |
 | License/privacy | MIT original project; retained dependency notices; actual XLSX creator fields empty; no private dataset or Office binaries bundled |
-| CI | Windows2022/Ubuntu24.04 Python3.13 source checks configured with pinned Actions. Hosted execution **NOT RUN** |
+| CI | Approved e2869e9 candidate passed hosted Windows2022/Ubuntu24.04 checks: 79 tests per platform plus installed CLI, Unicode and evidence checks. [Executed run](https://github.com/KaiserIIII/importproof/actions/runs/39089694800); [latest source checks](https://github.com/KaiserIIII/importproof/actions/workflows/tests.yml) |
 
-Tested implementation/data/tool commit: `296e0bf8d19ef65bdc288d948fbfb934aa3c0dbd`. Final delivery documentation/inventory commits do not change executable files or tests; external DELIVERY.json records final SHA, clean status, ZIP/bundle hashes and restoration checks. Public scope is exactly PUBLIC_FILES.json, which excludes itself from its digest list to avoid recursion. The final release audit verifies source/history patterns, licenses, links, bundle and archive; it is bounded, not security certification.
+Tested implementation/data/tool commit: `296e0bf8d19ef65bdc288d948fbfb934aa3c0dbd`. Accepted publication baseline: `e2869e99b154434862d84c61aa2c9ba82f0a042c`. Publication changes improve documentation/status and refresh the inventory; executable files and tests are unchanged. Public scope remains exactly 171 paths in PUBLIC_FILES.json, which excludes itself from its digest list to avoid recursion. External publication records retain final SHA, remote tree/path checks, CI results and author association. Earlier bundle/restoration records remain preserved. These are bounded checks, not security certification.
 
 ## Remaining limitations, not hidden passes
 
@@ -26,6 +26,6 @@ Tested implementation/data/tool commit: `296e0bf8d19ef65bdc288d948fbfb934aa3c0db
 - Windows has no hard worker RAM quota. Output limits are after rendering/serialization, not peak allocations. HTTP timeout is inactivity-based. The local server is not a public service or OS sandbox.
 - One application/build and small generated dataset; headless automation is not interactive Office GUI acceptance. Excel, other locales/versions, native Linux browser and production data are NOT RUN.
 - A confirmed representation/type difference may be intentional. No application attribution, algorithmic novelty, scientific innovation, general false-positive/recall estimate or production migration guarantee.
-- GitHub-hosted workflow results cannot be claimed before an authorized remote exists. CI replays frozen real-export fixtures; it does not install/run Calc or prove a GUI workflow.
+- Hosted CI passed on the approved source candidate. CI replays frozen real-export fixtures; it does not install/run Calc or prove a GUI workflow. Each later documentation head is separately checked on Actions.
 
 No unresolved demonstrated critical/important code defect blocks this explicitly limited source candidate. Broad XLSX certification and production deployment remain unsupported. Do not reclassify UNKNOWN as equivalent to obtain a stronger readiness label. Feature development stops at this candidate.

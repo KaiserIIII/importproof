@@ -1,5 +1,7 @@
 # ImportProof final source candidate
 
+Publication note: the owner subsequently authorized the experimental source at [KaiserIIII/importproof](https://github.com/KaiserIIII/importproof). The accepted e2869e9 candidate passed [hosted Windows/Linux checks](https://github.com/KaiserIIII/importproof/actions/runs/39089694800), 79 tests per platform. The pre-publication report below is retained as a dated acceptance snapshot; its NOT RUN hosted-CI/no-remote statements describe that earlier point. Current status: [PUBLICATION_READINESS](PUBLICATION_READINESS.md) and [latest Actions](https://github.com/KaiserIIII/importproof/actions/workflows/tests.yml). Runtime limitations and scientific claims have not changed.
+
 **Decision: READY_WITH_LIMITATIONS.** Real LibreOffice conversion and final clean environment validation are complete within the stated scope; no remote publication was performed.
 
 Real signed LibreOffice 26.2.5.2 performed five independent-profile headless UNO imports and ten CSV/XLSX saves. Default import changed leading zeros, 20-digit numbers, scientific notation and stored date types. Explicit text columns preserved tested nonempty strings; quoted-empty provenance was still merged. Normal CSV controls returned EQUIVALENT. All actual Calc XLSX cases return UNKNOWN due unsupported metadata/missing-cell semantics; numeric/type change evidence is still retained. [Real results, exact options, raw provenance and mature baselines](REAL_CONVERSION_RESULTS.md).

@@ -1,6 +1,6 @@
 # ImportProof handoff
 
-Delivery: runnable local source edition 0.1.0. No remote repository, push, hosted deployment, installer, PyPI package or official Release was created. Development stops at this delivered scope.
+Delivery: experimental source edition 0.1.0, now public at [KaiserIIII/importproof](https://github.com/KaiserIIII/importproof) after owner authorization. The approved e2869e9 source passed hosted Windows/Linux checks, 79 tests each; [latest CI](https://github.com/KaiserIIII/importproof/actions/workflows/tests.yml). No hosted application deployment, installer, PyPI package or official Release was created. Development is frozen. The original preparation/evidence instructions below remain available; newer publication records are in the separate maintainer publication evidence directory.
 
 Start with [README](README.md) / [中文说明](docs/USER_GUIDE_ZH.md), then [comparison contract](docs/COMPARISON_CONTRACT.md), [architecture](docs/ARCHITECTURE.md), [acceptance](docs/ACCEPTANCE.md), [security](docs/SECURITY.md) and [limitations](docs/KNOWN_LIMITATIONS.md).
 
@@ -21,7 +21,7 @@ To reproduce: `python tools/verify.py new-acceptance`, then `python tools/resour
 - `examples/`: nonprivate controlled inputs, actual SQLite conversion files, and real generated reports; provenance is explicit.
 - `docs/evidence/`: actual selected portable acceptance records. Full raw experiments are deliberately outside public source.
 - `requirements.lock`, `docs/DEPENDENCIES.json`, `third_party/licenses/`: exact dependencies, upstream revisions, licenses.
-- `.github/workflows/tests.yml`: pinned Windows/Linux source checks, hosted execution NOT RUN.
+- `.github/workflows/tests.yml`: pinned Windows/Linux source checks, now executed on GitHub; they do not run Office or replace application acceptance.
 - `PUBLIC_FILES.json`: SHA-256/size inventory of distributable Git blobs, excluding itself to avoid recursion.
 
 ## Evidence and restoration

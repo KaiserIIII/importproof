@@ -1,4 +1,10 @@
-# ImportProof RC freeze checkpoint
+# ImportProof publication freeze
+
+The owner explicitly authorized source publication at https://github.com/KaiserIIII/importproof from accepted e2869e99b154434862d84c61aa2c9ba82f0a042c. Remote main initially matched its SHA/tree and all171 approved paths. GitHub associates Author/Committer with KaiserIIII. Candidate hosted Windows/Linux run39089694800 passed79 tests each and installed CLI/evidence checks. README/status-only publication changes retain the accepted executable bytes and171 paths; PUBLIC_FILES.json is refreshed for documentation. Latest SHA, final remote/path/hash checks, CI logs and public-clone CLI/Web observations are recorded outside source in importproof-publication-20261018/PUBLICATION.json and on Actions.
+
+Scope remains READY_WITH_LIMITATIONS: normal real Calc XLSX can be UNKNOWN; Excel GUI/production migrations remain unverified; no hard Windows RAM quota or broad accuracy/workbook-equivalence claim. Hosted source CI is not Office or GUI acceptance. No Release, package publication or deployment. Feature development is frozen; no additional work is scheduled.
+
+## Earlier RC checkpoint — historical
 
 User authorized autonomous final real-software acceptance and open-source preparation, explicitly no remote creation/push/Release/packages. Original acceptance 0f5fde9667b036cf1965e1b34c45d804b3ea2846 and original backups/evidence preserved; new branch release/importproof-source-rc. No other project modified.
 
