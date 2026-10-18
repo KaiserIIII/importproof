@@ -279,7 +279,7 @@ def _xlsx_cell(element, workbook, shared, issues):
     fmt = _format(workbook, style)
     values = element.findall(N + 'v')
     formulas = element.findall(N + 'f')
-    if len(values) > 1 or len(formulas) > 1:
+    if len(values) > 1 or len(formulas) > 1 or len(element.findall(N + 'is')) > 1:
         raise ValueError('Duplicate cell value or formula')
     stored = values[0].text if values else None
     if stored is not None and len(stored) > MAX_TEXT:

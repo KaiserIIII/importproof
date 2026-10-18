@@ -1,0 +1,9 @@
+# Security and privacy
+
+ImportProof processes supplied files locally without runtime network access. It never evaluates spreadsheet formulas or macros, fetches external links or accepts remote server file paths. Reports contain original data; keep them private. Inputs are read and not modified. No automatic data repair or external publication occurs.
+
+Defense boundaries: exact uploaded basenames; bounded base64/JSON/file sizes; restricted ZIP paths/compression/members/expanded size; duplicate relationships/cells and DTD/entity/external references rejected; explicit numeric tokens and strict decoding; spawned child time/result caps; POSIX512MiB address space; no hard Windows RAM quota. Unsupported structures generate uncertainty. This is defense in depth, not a complete sandbox or claim that every hostile file is harmless.
+
+Web binds127.0.0.1, validates Host/optionalOrigin and a random per-run token, noCORS, no remote assets, restrictive CSP, escaped reports and DOMtextContent. Single-request HTTP avoids unbounded worker threads; limited body discard before rejection prevents Windows unread-upload connection resets. Boundaries and denial-of-service limitations remain documented. HTML exports are inert; CSV prefixes dangerous scalar cells and JSON-encodes raw evidence; JSON preserves full raw data. Do not automatically open suspicious reports in a formula-capable spreadsheet without inspection.
+
+Dependencies are hashlocked wheels with source revisions and license notices. Four exact package/version OSV lookups on2026-10-18 returned no known matching advisories; this is not a security guarantee. Source/history pattern scans and independent review are bounded checks, not certification. No credentials, production files or public server are required. Use private local storage for real user inputs and exported reports; do not commit them.

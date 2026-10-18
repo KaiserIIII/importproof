@@ -212,6 +212,11 @@ class ReaderTests(unittest.TestCase):
                 read_document(b'a,b\nx,y\nz,w\n', 'a.csv')
             self.assertLessEqual(cells.call_count, 4)
 
+    def test_duplicate_inline_string_values_are_not_silently_discarded(self):
+        body='<row r="1"><c r="A1" t="inlineStr"><is><t>id</t></is></c></row><row r="2"><c r="A2" t="inlineStr"><is><t>first</t></is><is><t>hidden</t></is></c></row>'
+        with self.assertRaisesRegex(ValueError,'Duplicate'):
+            read_document(xlsx([('Data',body)]),'a.xlsx')
+
 
 if __name__ == '__main__':
     unittest.main()

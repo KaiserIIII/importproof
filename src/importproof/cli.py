@@ -65,4 +65,3 @@ def main(argv=None) -> int:
     except (OSError, ValueError) as error:
         print(f"ImportProof error: {error}", file=sys.stderr)
         return 1
-

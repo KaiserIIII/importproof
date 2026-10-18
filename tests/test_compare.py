@@ -161,6 +161,14 @@ class ComparisonTests(unittest.TestCase):
         a['tables'][0]['rows'][0]['cells'][1]['format'] = 'General'
         self.assertEqual(compare_documents(b, a, {})['verdict'], 'UNKNOWN')
 
+    def test_number_header_format_is_not_silently_ignored(self):
+        b = document([["a", "x"]], headers=("123", "value"))
+        a = document([["a", "x"]], headers=("123", "value"))
+        for d in (b,a): d['tables'][0]['headers'][0]['kind']='number'
+        b['tables'][0]['headers'][0]['format']='00000'
+        a['tables'][0]['headers'][0]['format']='General'
+        self.assertEqual(compare_documents(b,a,{})['verdict'],'UNKNOWN')
+
 
 if __name__ == "__main__":
     unittest.main()

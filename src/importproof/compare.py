@@ -187,6 +187,10 @@ def compare_documents(before, after, options=None):
             emit("EQUIVALENT" if p["ignore_order"] else "CONFIRMED_LOSS", "COLUMN_ORDER_CHANGED", "Exact columns were reordered", table)
         for i, j in colmap.items():
             bh, ah = btable['headers'][i], atable['headers'][j]
+            if i not in ignored and bh['kind'] in ('number','date') and ah['kind']==bh['kind'] and bh.get('format') != ah.get('format'):
+                emit('UNKNOWN', 'HEADER_DISPLAY_FORMAT_CHANGED', 'Header display format changed; name alignment does not certify rendered header fidelity', table,
+                     {'row': 1, 'column': bn[i], 'column_index': i+1, 'cell': bh},
+                     {'row': 1, 'column': an[j], 'column_index': j+1, 'cell': ah})
             if bh['kind'] != ah['kind'] and i not in ignored:
                 emit('CONFIRMED_LOSS', 'HEADER_TYPE_CHANGED', 'Header storage type changed; column name alignment alone does not establish fidelity', table,
                      {'row': 1, 'column': bn[i], 'column_index': i+1, 'cell': bh},
