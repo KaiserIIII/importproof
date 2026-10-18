@@ -5,3 +5,4 @@ tests/compatibility/**/*.csv -text
 examples/*.csv -text
 examples/*.tsv -text
 examples/reports/** -text
+examples/reports/**/*.csv -diff

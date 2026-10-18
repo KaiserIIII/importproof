@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cases": [
+    {
+      "case": "100-unique-rows",
+      "status": "PASS",
+      "actual": "EQUIVALENT",
+      "expected": "EQUIVALENT",
+      "seconds": [
+        0.43102380001801066,
+        0.44989869999699295,
+        0.4122695999976713
+      ],
+      "median_seconds": 0.43102380001801066,
+      "before_sha256": "6426cc0406f05487486c249a27839154190283398f6575c7d94f8b2a1090727c",
+      "after_sha256": "6426cc0406f05487486c249a27839154190283398f6575c7d94f8b2a1090727c"
+    },
+    {
+      "case": "2000-unique-rows",
+      "status": "PASS",
+      "actual": "EQUIVALENT",
+      "expected": "EQUIVALENT",
+      "seconds": [
+        0.4286634000018239,
+        0.43616019998444244,
+        0.4242892000183929
+      ],
+      "median_seconds": 0.4286634000018239,
+      "before_sha256": "b939007c61209dc4c46d4159b9e44b85c1559c16be67cd3dfd420bde7ade9da7",
+      "after_sha256": "b939007c61209dc4c46d4159b9e44b85c1559c16be67cd3dfd420bde7ade9da7"
+    },
+    {
+      "case": "10000-unique-rows",
+      "status": "PASS",
+      "actual": "EQUIVALENT",
+      "expected": "EQUIVALENT",
+      "seconds": [
+        0.5231331999821123,
+        0.5352197999891359,
+        0.5601406999921892
+      ],
+      "median_seconds": 0.5352197999891359,
+      "before_sha256": "a3bdc424850d5c2634e18e8adbf306a934af5554d653336929a026ea77ef4e7a",
+      "after_sha256": "a3bdc424850d5c2634e18e8adbf306a934af5554d653336929a026ea77ef4e7a"
+    },
+    {
+      "case": "oversized",
+      "status": "PASS",
+      "actual": "ERROR",
+      "expected": "ERROR",
+      "seconds": [
+        8.100003469735384e-06
+      ],
+      "median_seconds": 8.100003469735384e-06,
+      "before_sha256": "0dfe91c1523276cb57173a627b31502cba3d10d606ad32573494f6e134d8b1b0",
+      "after_sha256": "732130cea35d96546d738d90dad7a35835b8640006d98109f84a03b939db8a6b"
+    },
+    {
+      "case": "dense-cell-cap",
+      "status": "PASS",
+      "actual": "ERROR",
+      "expected": "ERROR",
+      "seconds": [
+        0.5718044999812264
+      ],
+      "median_seconds": 0.5718044999812264,
+      "before_sha256": "24c7b81b8e638d7225a1714a8587249da1679bd4bb780d2e54676e49323137ba",
+      "after_sha256": "732130cea35d96546d738d90dad7a35835b8640006d98109f84a03b939db8a6b"
+    },
+    {
+      "case": "overlong-cell",
+      "status": "PASS",
+      "actual": "ERROR",
+      "expected": "ERROR",
+      "seconds": [
+        0.40824889999930747
+      ],
+      "median_seconds": 0.40824889999930747,
+      "before_sha256": "53beedf1f0b13494b677c779b335dc08f161830f5236ffe95c63978c74946c63",
+      "after_sha256": "732130cea35d96546d738d90dad7a35835b8640006d98109f84a03b939db8a6b"
+    },
+    {
+      "case": "bad-encoding",
+      "status": "PASS",
+      "actual": "ERROR",
+      "expected": "ERROR",
+      "seconds": [
+        0.40283350000390783
+      ],
+      "median_seconds": 0.40283350000390783,
+      "before_sha256": "1b2a7fa8aa3fe775b14ccd3e059151766c7b3bf286bd8f0fd2cd5554bbb74e4e",
+      "after_sha256": "732130cea35d96546d738d90dad7a35835b8640006d98109f84a03b939db8a6b"
+    },
+    {
+      "case": "null-byte",
+      "status": "PASS",
+      "actual": "ERROR",
+      "expected": "ERROR",
+      "seconds": [
+        0.40301340000587516
+      ],
+      "median_seconds": 0.40301340000587516,
+      "before_sha256": "335c9afe0da8dcfc9f8806a67f6ded5c482be3ffaa0eced88131b777a5a77999",
+      "after_sha256": "732130cea35d96546d738d90dad7a35835b8640006d98109f84a03b939db8a6b"
+    },
+    {
+      "case": "formula-like",
+      "status": "PASS",
+      "actual": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "seconds": [
+        0.3797312999959104
+      ],
+      "median_seconds": 0.3797312999959104,
+      "before_sha256": "87702443e954a1051f3f885ea11130c3d536939b8620cde1c3ae079aac92b0fd",
+      "after_sha256": "87702443e954a1051f3f885ea11130c3d536939b8620cde1c3ae079aac92b0fd"
+    },
+    {
+      "case": "truncated-findings",
+      "status": "PASS",
+      "actual": "UNKNOWN",
+      "expected": "UNKNOWN",
+      "seconds": [
+        0.42532009998103604
+      ],
+      "median_seconds": 0.42532009998103604,
+      "before_sha256": "4b0f57b523a0bbda315e70634cd6adc9e176df1ba7c72518b6ebc87e7ada99b2",
+      "after_sha256": "433a7e40a29744dbd0c507da2d2cc4012763adbab4ebcbfc2b7a023ee6fe0f13"
+    }
+  ],
+  "scope": "Small bounded resource probes, no throughput SLA or complete hostile-input guarantee; Windows no hard RAM quota"
+}

@@ -1,0 +1,31 @@
+{
+  "tested_commit": "f1b04b2ce5df1c77c51acb561fe7e0536c7b2188",
+  "status": "PASS",
+  "browser": "149.0.7827.55",
+  "steps": [
+    {
+      "step": "actual-file-uploads-and-compare",
+      "status": "PASS"
+    },
+    {
+      "step": "risk-filter-and-before-after-evidence",
+      "status": "PASS"
+    },
+    {
+      "step": "three-actual-browser-downloads",
+      "status": "PASS"
+    },
+    {
+      "step": "browser-file-drop-real-multisheet-xlsx-self-comparison",
+      "status": "PASS",
+      "scope": "Browser DataTransfer, not an OS drag gesture"
+    },
+    {
+      "step": "mobile-layout-no-horizontal-overflow",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "external_requests": [],
+  "scope": "Real local browser file parsing, filtering, downloads; controlled inputs; no office GUI or production importer verification"
+}

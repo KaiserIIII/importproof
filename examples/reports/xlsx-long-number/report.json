@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0",
+  "inputs": {
+    "before": {
+      "format": "xlsx",
+      "sha256": "b99717016d0d5f200b2a16ce3f4e48bb1521426bd6c16ab2d4013c1c9eaeba74",
+      "bytes": 1739,
+      "metadata": {
+        "date_epoch": "1899-12-30T00:00:00",
+        "formulas_evaluated": false,
+        "styles_sha256": null
+      }
+    },
+    "after": {
+      "format": "xlsx",
+      "sha256": "f36857b0b8de92737ca40ce20261c29b41c7a8844ac37d8480bf73292a1b008b",
+      "bytes": 1740,
+      "metadata": {
+        "date_epoch": "1899-12-30T00:00:00",
+        "formulas_evaluated": false,
+        "styles_sha256": null
+      }
+    }
+  },
+  "policy": {
+    "keys": [],
+    "ignore_order": false,
+    "text_columns": [],
+    "numeric_columns": [],
+    "date_columns": [],
+    "ignore_columns": [],
+    "date_formats": [
+      "%Y-%m-%d",
+      "%Y-%m-%dT%H:%M:%S"
+    ],
+    "trim_whitespace": false,
+    "unicode_normalization": "none",
+    "null_tokens": [],
+    "column_map": {},
+    "before": {},
+    "after": {},
+    "before_sheet": null,
+    "after_sheet": null
+  },
+  "assumptions": [
+    "Input origins and before/after roles are caller supplied; hashes identify bytes only.",
+    "Observed difference does not establish intent or which application caused it.",
+    "Header is the first record; all default sheets compared. No fuzzy identity matching.",
+    "No keys: records compared by position; cell findings assume corresponding record positions.",
+    "No keys: records compared by position; cell findings assume corresponding record positions."
+  ],
+  "findings": [
+    {
+      "verdict": "CONFIRMED_LOSS",
+      "code": "LONG_NUMBER_PRECISION_CHANGE",
+      "message": "Observed representation/type/value changed under selected rules; no application attribution",
+      "table": "Data",
+      "before": {
+        "row": 2,
+        "column": "value",
+        "column_index": 2,
+        "sheet": "Data",
+        "source": {
+          "sheet": "Data",
+          "row": 2,
+          "explicit": true
+        },
+        "cell": {
+          "raw": "12345678901234567",
+          "kind": "number",
+          "coordinate": "B2",
+          "format": "General",
+          "style_index": 0,
+          "stored": "12345678901234567"
+        }
+      },
+      "after": {
+        "row": 2,
+        "column": "value",
+        "column_index": 2,
+        "sheet": "Data",
+        "source": {
+          "sheet": "Data",
+          "row": 2,
+          "explicit": true
+        },
+        "cell": {
+          "raw": "12345678901234568",
+          "kind": "number",
+          "coordinate": "B2",
+          "format": "General",
+          "style_index": 0,
+          "stored": "12345678901234568"
+        }
+      }
+    }
+  ],
+  "truncated": false,
+  "summary": {
+    "CONFIRMED_LOSS": 1,
+    "SUSPECTED_CONVERSION": 0,
+    "EQUIVALENT": 0,
+    "UNKNOWN": 0
+  },
+  "verdict": "CONFIRMED_LOSS"
+}

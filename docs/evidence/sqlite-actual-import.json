@@ -1,0 +1,30 @@
+{
+  "status": "RAN",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "sqlite": "3.45.3",
+  "ddl": "CREATE TABLE imported(id TEXT PRIMARY KEY, value REAL)",
+  "parameters": [
+    [
+      "a",
+      "00123"
+    ],
+    [
+      "b",
+      "12345678901234567"
+    ]
+  ],
+  "actual_values_and_types": [
+    [
+      "a",
+      123.0,
+      "real"
+    ],
+    [
+      "b",
+      1.2345678901234568e+16,
+      "real"
+    ]
+  ],
+  "output": "id,value\na,123.0\nb,1.2345678901234568e+16\n",
+  "scope": "Real controlled SQLite typed import/export; no Excel/LibreOffice/provider workflow"
+}

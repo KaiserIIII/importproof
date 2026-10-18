@@ -1,0 +1,125 @@
+verdict,code,message,table,before,after,details
+SUSPECTED_CONVERSION,LEADING_ZERO_REMOVED,Pattern consistent with numeric conversion; cause unproven,data,"{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123\n""
+  },
+  ""cell"": {
+    ""raw"": ""00123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,123.0\n""
+  },
+  ""cell"": {
+    ""raw"": ""123.0"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}",{}
+CONFIRMED_LOSS,DECIMAL_REPRESENTATION_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123\n""
+  },
+  ""cell"": {
+    ""raw"": ""00123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,123.0\n""
+  },
+  ""cell"": {
+    ""raw"": ""123.0"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}",{}
+SUSPECTED_CONVERSION,SCIENTIFIC_NOTATION_CHANGE,Scientific notation representation changed; cause unproven,data,"{
+  ""row"": 3,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,12345678901234567\n""
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234567"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,1.2345678901234568e+16\n""
+  },
+  ""cell"": {
+    ""raw"": ""1.2345678901234568e+16"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}",{}
+CONFIRMED_LOSS,LONG_NUMBER_PRECISION_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 3,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,12345678901234567\n""
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234567"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,1.2345678901234568e+16\n""
+  },
+  ""cell"": {
+    ""raw"": ""1.2345678901234568e+16"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}",{}

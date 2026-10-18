@@ -1,0 +1,280 @@
+verdict,code,message,table,before,after,details
+SUSPECTED_CONVERSION,LEADING_ZERO_REMOVED,Pattern consistent with numeric conversion; cause unproven,data,"{
+  ""row"": 2,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": ""00123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}",{}
+CONFIRMED_LOSS,DECIMAL_REPRESENTATION_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": ""00123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""123"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B2""
+  }
+}",{}
+CONFIRMED_LOSS,DECIMAL_REPRESENTATION_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""amount"",
+  ""column_index"": 3,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": ""1.2300"",
+    ""kind"": ""text"",
+    ""coordinate"": ""C2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""amount"",
+  ""column_index"": 3,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""1.23"",
+    ""kind"": ""text"",
+    ""coordinate"": ""C2""
+  }
+}",{}
+CONFIRMED_LOSS,WHITESPACE_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""note"",
+  ""column_index"": 4,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": "" 中文 "",
+    ""kind"": ""text"",
+    ""coordinate"": ""D2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""note"",
+  ""column_index"": 4,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""中文"",
+    ""kind"": ""text"",
+    ""coordinate"": ""D2""
+  }
+}",{}
+SUSPECTED_CONVERSION,POSSIBLE_DATE_CONVERSION,Changed date-shaped text without a confirmed date interpretation,data,"{
+  ""row"": 2,
+  ""column"": ""when"",
+  ""column_index"": 5,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": ""2026-10-18"",
+    ""kind"": ""text"",
+    ""coordinate"": ""E2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""when"",
+  ""column_index"": 5,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""18/10/2026"",
+    ""kind"": ""text"",
+    ""coordinate"": ""E2""
+  }
+}",{}
+CONFIRMED_LOSS,VALUE_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 2,
+  ""column"": ""when"",
+  ""column_index"": 5,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a,00123,1.2300,\"" 中文 \"",2026-10-18\n""
+  },
+  ""cell"": {
+    ""raw"": ""2026-10-18"",
+    ""kind"": ""text"",
+    ""coordinate"": ""E2""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""when"",
+  ""column_index"": 5,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 2,
+    ""line_end"": 2,
+    ""raw_record"": ""a\t123\t1.23\t中文\t18/10/2026\n""
+  },
+  ""cell"": {
+    ""raw"": ""18/10/2026"",
+    ""kind"": ""text"",
+    ""coordinate"": ""E2""
+  }
+}",{}
+CONFIRMED_LOSS,LONG_NUMBER_PRECISION_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 3,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,12345678901234567,0.10000000000000001,café,2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234567"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""identifier"",
+  ""column_index"": 2,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b\t12345678901234568\t0.1\tcafé\t2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234568"",
+    ""kind"": ""text"",
+    ""coordinate"": ""B3""
+  }
+}",{}
+CONFIRMED_LOSS,LONG_NUMBER_PRECISION_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 3,
+  ""column"": ""amount"",
+  ""column_index"": 3,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,12345678901234567,0.10000000000000001,café,2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""0.10000000000000001"",
+    ""kind"": ""text"",
+    ""coordinate"": ""C3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""amount"",
+  ""column_index"": 3,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b\t12345678901234568\t0.1\tcafé\t2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""0.1"",
+    ""kind"": ""text"",
+    ""coordinate"": ""C3""
+  }
+}",{}
+CONFIRMED_LOSS,UNICODE_TEXT_CHANGED,Observed representation/type/value changed under selected rules; no application attribution,data,"{
+  ""row"": 3,
+  ""column"": ""note"",
+  ""column_index"": 4,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b,12345678901234567,0.10000000000000001,café,2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""café"",
+    ""kind"": ""text"",
+    ""coordinate"": ""D3""
+  }
+}","{
+  ""row"": 3,
+  ""column"": ""note"",
+  ""column_index"": 4,
+  ""sheet"": ""data"",
+  ""source"": {
+    ""line_start"": 3,
+    ""line_end"": 3,
+    ""raw_record"": ""b\t12345678901234568\t0.1\tcafé\t2026-10-19\n""
+  },
+  ""cell"": {
+    ""raw"": ""café"",
+    ""kind"": ""text"",
+    ""coordinate"": ""D3""
+  }
+}",{}

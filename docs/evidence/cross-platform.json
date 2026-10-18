@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "tested_commit": "f1b04b2ce5df1c77c51acb561fe7e0536c7b2188",
+  "reports": [
+    {
+      "case": "strict-loss",
+      "full_report_json_equal": true,
+      "sha256_windows": "444e3de7e816dbaf90495c74e4de69f2eb00237054cf7a58001bf161ab720cfd",
+      "sha256_linux": "444e3de7e816dbaf90495c74e4de69f2eb00237054cf7a58001bf161ab720cfd",
+      "verdict": "CONFIRMED_LOSS"
+    },
+    {
+      "case": "same",
+      "full_report_json_equal": true,
+      "sha256_windows": "32c702437612d6be50daebc25b8084042cb6cf707f9d9bb5e166dcc4a4efdd4e",
+      "sha256_linux": "32c702437612d6be50daebc25b8084042cb6cf707f9d9bb5e166dcc4a4efdd4e",
+      "verdict": "EQUIVALENT"
+    },
+    {
+      "case": "sqlite-actual",
+      "full_report_json_equal": true,
+      "sha256_windows": "be54183bb030dc826672b7f961eef9ad4115e6829503d372801d7e74c5fb3ef4",
+      "sha256_linux": "be54183bb030dc826672b7f961eef9ad4115e6829503d372801d7e74c5fb3ef4",
+      "verdict": "CONFIRMED_LOSS"
+    },
+    {
+      "case": "xlsx-long-number",
+      "full_report_json_equal": true,
+      "sha256_windows": "c80a709cb5127fe802c9f6275c786d34f2c94af4102752e714006be608183196",
+      "sha256_linux": "c80a709cb5127fe802c9f6275c786d34f2c94af4102752e714006be608183196",
+      "verdict": "CONFIRMED_LOSS"
+    }
+  ],
+  "resource_cases_consistent": 10,
+  "scope": "The four frozen controlled reports and ten bounded probes only; not arbitrary inputs or application migrations"
+}

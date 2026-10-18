@@ -1,0 +1,26 @@
+[
+  {
+    "name": "openpyxl",
+    "version": "3.1.5",
+    "status": "RAN",
+    "response": {}
+  },
+  {
+    "name": "et-xmlfile",
+    "version": "2.0.0",
+    "status": "RAN",
+    "response": {}
+  },
+  {
+    "name": "defusedxml",
+    "version": "0.7.1",
+    "status": "RAN",
+    "response": {}
+  },
+  {
+    "name": "setuptools",
+    "version": "84.0.0",
+    "status": "RAN",
+    "response": {}
+  }
+]

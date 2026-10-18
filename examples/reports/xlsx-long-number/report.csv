@@ -1,0 +1,38 @@
+verdict,code,message,table,before,after,details
+CONFIRMED_LOSS,LONG_NUMBER_PRECISION_CHANGE,Observed representation/type/value changed under selected rules; no application attribution,Data,"{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""Data"",
+  ""source"": {
+    ""sheet"": ""Data"",
+    ""row"": 2,
+    ""explicit"": true
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234567"",
+    ""kind"": ""number"",
+    ""coordinate"": ""B2"",
+    ""format"": ""General"",
+    ""style_index"": 0,
+    ""stored"": ""12345678901234567""
+  }
+}","{
+  ""row"": 2,
+  ""column"": ""value"",
+  ""column_index"": 2,
+  ""sheet"": ""Data"",
+  ""source"": {
+    ""sheet"": ""Data"",
+    ""row"": 2,
+    ""explicit"": true
+  },
+  ""cell"": {
+    ""raw"": ""12345678901234568"",
+    ""kind"": ""number"",
+    ""coordinate"": ""B2"",
+    ""format"": ""General"",
+    ""style_index"": 0,
+    ""stored"": ""12345678901234568""
+  }
+}",{}

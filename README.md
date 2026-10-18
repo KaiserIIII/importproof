@@ -6,6 +6,10 @@ ImportProof is a local CSV, TSV and XLSX import-fidelity review tool for Windows
 
 [中文使用说明](docs/USER_GUIDE_ZH.md) · [Comparison contract](docs/COMPARISON_CONTRACT.md) · [Competitors and executed baselines](docs/COMPETITORS.md) · [Acceptance](docs/ACCEPTANCE.md) · [Security](docs/SECURITY.md)
 
+![Actual local browser report](docs/images/browser-actual.png)
+
+Source release 0.1.0: **77 tests passed on each of fresh Windows and isolated Linux environments**, plus real Windows Chromium upload/filter/export acceptance. [Executed scope and NOT RUN items](docs/ACCEPTANCE.md).
+
 ## Install and run
 
 Use **Python 3.13** and a fresh environment in this source directory. Python 3.12 is unsupported: its `csv.QUOTE_NOTNULL` reader does not preserve the quoted-empty distinction needed here. Dependencies are pinned by version and wheel hash; source revisions and licenses are recorded in [the dependency inventory](docs/DEPENDENCIES.json). Initial installation requires internet access unless the locked wheels are already available; runtime performs no external requests.
