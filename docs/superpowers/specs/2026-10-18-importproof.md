@@ -1,0 +1,36 @@
+# ImportProof design and comparison contract
+
+User authorizes end-to-end autonomous engineering and expressly disallows intermediate confirmation. Routine design choices are resolved here; no remote publication is inferred. Independent directory, no existing project changes. Local source delivery, not research novelty or proof of any named spreadsheet application's behavior.
+
+## Architecture and alternatives
+
+Selected: Python3.13+ standard CSV parser (QUOTE_NOTNULL distinguishes unquoted empty and quoted empty), openpyxl + defusedxml for bounded XLSX reads, exact Decimal/date comparison under explicit column policies, deterministic row/column matching, subprocess boundary, CLI and localhost Web UI. Python3.12 is excluded because its QUOTE_NOTNULL reader is documented as broken. Rejected: dataframe type inference loses original text; generic diff wrappers cannot alone express these evidence policies. Existing tools remain baselines, not claimed inferior.
+
+Modules: models.py defines immutable options/errors; readers.py emits public JSON-compatible table/cell records; compare.py aligns/diffs; reports.py emits safe HTML/CSV/JSON; worker.py imposes time/result limits; cli.py and web.py use the same worker; static/ holds dependency-free local GUI. Tests and examples use only generated nonprivate inputs; raw logs go outside source.
+
+## Reader interface
+
+`read_document(data: bytes, filename: str, options: dict | None=None) -> dict`.
+Document has `format`, `sha256`, `bytes`, `metadata`, `tables`. Each table has `name`, `headers` (list of cell dictionaries), `rows` (list of `{number,cells,source}`), `issues` (list of `{code,message,...}`). Each cell has `raw` (string or null), `kind` (text,number,date,boolean,blank,empty,missing,formula,error), `coordinate`, optional `format`, `stored` (original XLSX numeric/date/formula XML text). Headers have same shape. Table identity CSV/TSV=`data`; XLSX=sheet names; explicit before_sheet/after_sheet may pair two individual sheets. No sheet is silently discarded. Cell identity includes kind+raw; XLSX style evidence is preserved but visual formatting is not fully rendered.
+
+Input options: encoding auto (UTF-8/BOM or UTF-16 BOM only) or explicit utf-8,utf-8-sig,utf-16,cp1252,gb18030; delimiter auto (CSV comma default with explicit delimiter required when ambiguous) or one of comma/tab/semicolon/pipe; quotechar one character. UTF-8 decoding never silently replaces bytes. Parsed fields stay text; unquoted empty is blank, not automatically database NULL; quoted empty is empty string. Explicit policy null_tokens may assign meaning. Blank physical records, ragged rows, duplicate/empty headers and XLSX merged/unsupported constructs must be surfaced rather than collapsed. Original physical CSV line spans or XLSX sheet/cell addresses locate evidence. Spreadsheet formulas/macros/external links are never evaluated/fetched; formula cells always require review. Macro-enabled files and suspicious ZIP/XML are rejected.
+
+Default limits:5MiB/file,50MiB uncompressed XLSX,1000 ZIP members,20 sheets,50000 rows/sheet,256 columns,300000 cells/document,65536 characters/cell,30second subprocess and16MiB JSON result. Bounded processing, not unlimited streaming or full OS sandbox. Windows has no hard worker RAM ceiling; Linux may apply512MiB RLIMIT_AS. A limit failure cannot produce EQUIVALENT.
+
+## Policy and matching
+
+Options keys: `keys` list of unique header names or1-based `#N` references; `ignore_order` bool; `text_columns`, `numeric_columns`, `date_columns`, `ignore_columns` lists; `date_formats` list of explicit strptime formats; `trim_whitespace`, `unicode_normalization` (none/NFC/NFKC), `null_tokens` list, `column_map` dict before-name->after-name; input options `before` and `after`; `before_sheet`,`after_sheet` optional. Unknown/invalid/conflicting policy keys reject. No heuristic mapping asserts identity.
+
+Unique complete primary keys match exactly by preserved text+type. Duplicate/missing keys yield UNKNOWN groups and are not paired arbitrarily. Changed key is lost/added identity, not a known edit. No key: default positional comparison (explicit assumption); ignore_order matches exact multisets only, unmatched rows are UNKNOWN identity differences rather than invented cell pairs. Column names map only if unique, duplicates require indexed columns; exact duplicate headers align by position with explicit UNKNOWN warning. Renames are only confirmed via caller map; unpaired columns are lost/added plus suspected rename, never fuzzy equal. Row/column order changes are shown, with EQUIVALENT only when allowed by policy.
+
+## Verdicts
+
+`CONFIRMED_LOSS`: observed row/column absence or raw/type/value difference violates chosen rules under stated alignment; means observed data difference, not proof of software causality or business intent. `SUSPECTED_CONVERSION`: observed change resembles leading-zero removal, scientific notation/date conversion; cannot prove cause. For stable aligned rows, confirmed representation/value change may coexist with a suspected mechanism finding. `EQUIVALENT`: only under recorded rules, no unresolved issues. `UNKNOWN`: missing/duplicate identity, unsupported formula, uninterpretable semantics or bounded processing uncertainty. Overall verdict UNKNOWN if any uncertainty remains, otherwise CONFIRMED_LOSS if any disallowed change, otherwise EQUIVALENT. Per-finding categories and counts remain visible. No blame attribution to Excel/LibreOffice.
+
+Risks: leadingzero,15+digit precision,scientific notation,textdate,datevalue/dateformat,decimalvalue/scale,Unicode,whitespace,blank/empty,rowslost/added/duplicate,columnsremoved/added/mapped/order,rowsorted,formula/error. Numeric equality uses Decimal, never binary float. Date semantics require explicit formats or stored XLSX date type/ISO; ambiguous dates UNKNOWN. Numeric/date rules cannot override must-text or formula UNKNOWN.
+
+Reports contain schema/version, inputSHA256/metadata, full policy, assumptions, findings with original evidence, truncation/limits and counts. Max2000 findings, truncation yieldsUNKNOWN. HTML escapes untrusted values, no remote assets; CSV guards spreadsheet formula injection by JSON-encoding raw evidence fields and prefixing dangerous scalar cells. Reports may contain private data; never auto-upload. CLI exits0 equivalent,2 findings/UNKNOWN,1 invalid/process error; argparse syntax2. Output directory must be new. Web offers two drag/drop inputs, strategy JSON and main controls, filter, before/after values, explicit export downloads. LocalHTTP binds127.0.0.1,host/origin/token checks,size/time bounds,no external runtime calls; not public service.
+
+## Validation and handoff
+
+Reader/engine/interface/security tests first, actual CLI and browser file upload/filter/export, fresh Windows and available dedicated Linux acceptance. Pin/audit dependencies and action commits. Public examples with upstream license/hash if used; synthetic/controlled transformations explicitly labeled. Actual baseline runs cover overlaps and differences without claiming novelty. A genuine application conversion is attempted only if safely available; otherwise NOT RUN. Independent code review before finalfreeze. No remote/push/Release/deployment. Keep failures, logs, environment, checkpoint and final limitations.
