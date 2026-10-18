@@ -1,0 +1,191 @@
+[
+  {
+    "name": "openpyxl",
+    "version": "3.1.5",
+    "source": "https://foss.heptapod.net/openpyxl/openpyxl",
+    "license_metadata": "MIT",
+    "artifact": "https://files.pythonhosted.org/packages/c0/da/977ded879c29cbd04de313843e76868e6e13408a94ed6b987245dc7c8506/openpyxl-3.1.5-py2.py3-none-any.whl",
+    "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+    "installed_at": "2026-10-18T01:14:19.997839+00:00",
+    "requirements": [
+      "et-xmlfile"
+    ],
+    "source_commit": "13627b03ca25a1a98becf40e533b955615b13429",
+    "source_commit_system": "Mercurial",
+    "source_reviewed_at": "2026-10-18T01:21:00.811131+00:00",
+    "license_files": [
+      {
+        "file": "third_party/licenses/openpyxl-0-LICENCE.rst.txt",
+        "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e"
+      }
+    ]
+  },
+  {
+    "name": "et-xmlfile",
+    "version": "2.0.0",
+    "source": "https://foss.heptapod.net/openpyxl/et_xmlfile",
+    "license_metadata": "MIT",
+    "artifact": "https://files.pythonhosted.org/packages/c1/8b/5fe2cc11fee489817272089c4203e679c63b570a5aaeb18d852ae3cbba6a/et_xmlfile-2.0.0-py3-none-any.whl",
+    "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+    "installed_at": "2026-10-18T01:14:21.012168+00:00",
+    "requirements": null,
+    "source_commit": "683e1aecb8273371f409857b20e971110d97c3ec",
+    "source_commit_system": "Mercurial",
+    "source_reviewed_at": "2026-10-18T01:21:00.814201+00:00",
+    "license_files": [
+      {
+        "file": "third_party/licenses/et-xmlfile-0-LICENCE.python.txt",
+        "sha256": "4ccdaaebc0f44b83720ec0399bb7ab329adce067dd62f73c5535a2dc05628ab2"
+      },
+      {
+        "file": "third_party/licenses/et-xmlfile-1-LICENCE.rst.txt",
+        "sha256": "0c84bb42f5d367e5ebf9fc2dde35b16141df5ee0fdc189250858bc6c5560f69e"
+      }
+    ]
+  },
+  {
+    "name": "defusedxml",
+    "version": "0.7.1",
+    "source": "https://github.com/tiran/defusedxml",
+    "license_metadata": "PSF-2.0",
+    "artifact": "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl",
+    "sha256": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+    "installed_at": "2026-10-18T01:14:21.892789+00:00",
+    "requirements": null,
+    "source_commit": "ebff1b493751e2f0775314bdd4188d64f07ea184",
+    "source_commit_system": "Git",
+    "source_reviewed_at": "2026-10-18T01:21:00.816137+00:00",
+    "license_files": [
+      {
+        "file": "third_party/licenses/defusedxml-0-LICENSE.txt",
+        "sha256": "b80ce9da8c42a1f91079627fbbe2bf27210ae108a0ffe5f077d5b08e076c24c8"
+      }
+    ]
+  },
+  {
+    "name": "setuptools",
+    "version": "84.0.0",
+    "source": "https://github.com/pypa/setuptools",
+    "license_metadata": "MIT",
+    "artifact": "https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl",
+    "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+    "installed_at": "2026-10-18T01:14:23.454129+00:00",
+    "requirements": [
+      "pytest!=8.1.*,>=6; extra == \"test\"",
+      "virtualenv>=13.0.0; extra == \"test\"",
+      "wheel>=0.44.0; extra == \"test\"",
+      "pip>=19.1; extra == \"test\"",
+      "packaging>=24.2; extra == \"test\"",
+      "jaraco.envs>=2.2; extra == \"test\"",
+      "pytest-xdist>=3; extra == \"test\"",
+      "jaraco.path>=3.7.2; extra == \"test\"",
+      "build[virtualenv]>=1.0.3; extra == \"test\"",
+      "filelock>=3.4.0; extra == \"test\"",
+      "ini2toml[lite]>=0.14; extra == \"test\"",
+      "tomli-w>=1.0.0; extra == \"test\"",
+      "pytest-timeout; extra == \"test\"",
+      "pytest-perf; sys_platform != \"cygwin\" and extra == \"test\"",
+      "jaraco.develop>=7.21; (python_version >= \"3.9\" and sys_platform != \"cygwin\") and extra == \"test\"",
+      "pytest-home>=0.5; extra == \"test\"",
+      "pytest-subprocess; extra == \"test\"",
+      "pyproject-hooks!=1.1; extra == \"test\"",
+      "jaraco.test>=5.5; extra == \"test\"",
+      "sphinx>=3.5; extra == \"doc\"",
+      "jaraco.packaging>=9.3; extra == \"doc\"",
+      "rst.linker>=1.9; extra == \"doc\"",
+      "furo; extra == \"doc\"",
+      "sphinx-lint; extra == \"doc\"",
+      "jaraco.tidelift>=1.4; extra == \"doc\"",
+      "pygments-github-lexers==0.0.5; extra == \"doc\"",
+      "sphinx-favicon; extra == \"doc\"",
+      "sphinx-inline-tabs; extra == \"doc\"",
+      "sphinx-reredirects; extra == \"doc\"",
+      "sphinxcontrib-towncrier; extra == \"doc\"",
+      "sphinx-notfound-page<2,>=1; extra == \"doc\"",
+      "pyproject-hooks!=1.1; extra == \"doc\"",
+      "towncrier<24.7; extra == \"doc\"",
+      "packaging>=24.2; extra == \"core\"",
+      "more_itertools>=8.8; extra == \"core\"",
+      "jaraco.text>=3.7; extra == \"core\"",
+      "importlib_metadata>=6; python_version < \"3.10\" and extra == \"core\"",
+      "tomli>=2.0.1; python_version < \"3.11\" and extra == \"core\"",
+      "wheel>=0.43.0; extra == \"core\"",
+      "jaraco.functools>=4; extra == \"core\"",
+      "more_itertools; extra == \"core\"",
+      "pytest-checkdocs>=2.14; extra == \"check\"",
+      "pytest-ruff>=0.2.1; sys_platform != \"cygwin\" and extra == \"check\"",
+      "ruff>=0.13.0; sys_platform != \"cygwin\" and extra == \"check\"",
+      "pytest-cov; extra == \"cover\"",
+      "pytest-enabler>=3.4; extra == \"enabler\"",
+      "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\" and extra == \"type\"",
+      "mypy==1.18.*; extra == \"type\"",
+      "importlib_metadata>=7.0.2; python_version < \"3.10\" and extra == \"type\"",
+      "jaraco.develop>=7.21; sys_platform != \"cygwin\" and extra == \"type\""
+    ],
+    "source_commit": "72e919a8b10aaafc041205d4e3ae0e6a2e1e5f87",
+    "source_commit_system": "Git",
+    "source_reviewed_at": "2026-10-18T01:21:00.817031+00:00",
+    "license_files": [
+      {
+        "file": "third_party/licenses/setuptools-0-LICENSE.txt",
+        "sha256": "458502e12d97bbf64438606a20044aa85eb05fb0a8a807bb35dbec253fd1fc04"
+      },
+      {
+        "file": "third_party/licenses/setuptools-1-LICENSE.txt",
+        "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+      },
+      {
+        "file": "third_party/licenses/setuptools-2-LICENSE.txt",
+        "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+      },
+      {
+        "file": "third_party/licenses/setuptools-3-LICENSE.txt",
+        "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+      },
+      {
+        "file": "third_party/licenses/setuptools-4-LICENSE.txt",
+        "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+      },
+      {
+        "file": "third_party/licenses/setuptools-5-LICENSE.APACHE.txt",
+        "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+      },
+      {
+        "file": "third_party/licenses/setuptools-6-LICENSE.BSD.txt",
+        "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+      },
+      {
+        "file": "third_party/licenses/setuptools-7-LICENSE.txt",
+        "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+      },
+      {
+        "file": "third_party/licenses/setuptools-8-LICENSE.txt",
+        "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+      },
+      {
+        "file": "third_party/licenses/setuptools-9-LICENSE.txt.txt",
+        "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+      },
+      {
+        "file": "third_party/licenses/setuptools-10-LICENSE.txt",
+        "sha256": "5a57cb4db85e2a2dd88c290628908add57e3451449e0a9a71fdfb38776fd759d"
+      },
+      {
+        "file": "third_party/licenses/setuptools-11-LICENSE.txt",
+        "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+      },
+      {
+        "file": "third_party/licenses/setuptools-12-LICENSE.txt",
+        "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+      },
+      {
+        "file": "third_party/licenses/setuptools-13-LICENSE.txt",
+        "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+      },
+      {
+        "file": "third_party/licenses/setuptools-14-LICENSE.txt",
+        "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+      }
+    ]
+  }
+]

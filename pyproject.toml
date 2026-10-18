@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "importproof"
+version = "0.1.0"
+description = "Local CSV, TSV and XLSX import fidelity review with explicit comparison rules"
+requires-python = ">=3.13"
+license = "MIT"
+dependencies = ["openpyxl==3.1.5", "defusedxml==0.7.1"]
+
+[project.scripts]
+importproof = "importproof.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+importproof = ["static/*"]

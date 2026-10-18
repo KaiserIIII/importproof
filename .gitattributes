@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.xlsx -text
+*.png -text
+tests/compatibility/** -text
+examples/*.csv -text
+examples/*.tsv -text
+examples/reports/** -text

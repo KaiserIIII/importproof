@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ImportProof — know what changed</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="ImportProof home"><span class="brand-mark" aria-hidden="true">IP</span>ImportProof</a><span class="local"><span aria-hidden="true">●</span> Local workspace</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">IMPORT FIDELITY REVIEW</p><h1>Know what changed.<br><span>Keep the evidence.</span></h1><p class="lede">Compare the file you started with against the file you received. Review original values, explicit rules, and every unresolved question.</p><div class="tags"><span>CSV</span><span>TSV</span><span>XLSX</span><span class="privacy">Files stay on this computer</span></div></section>
+    <form id="compare-form">
+      <section class="panel" aria-labelledby="files-heading"><div class="section-heading"><h2 id="files-heading"><span class="step">01</span> Choose your files</h2><span class="subtle">Up to 5 MiB each</span></div>
+        <div class="file-grid">
+          <label class="dropzone" id="before-zone" for="before-file"><span class="file-label">BEFORE <span>Original file</span></span><span class="file-icon" aria-hidden="true">↥</span><strong id="before-name">Drop your original file here</strong><span class="file-hint" id="before-hint">or choose a file</span><input id="before-file" type="file" accept=".csv,.tsv,.xlsx" aria-describedby="before-hint"></label>
+          <label class="dropzone" id="after-zone" for="after-file"><span class="file-label">AFTER <span>Imported or exported file</span></span><span class="file-icon" aria-hidden="true">↥</span><strong id="after-name">Drop your converted file here</strong><span class="file-hint" id="after-hint">or choose a file</span><input id="after-file" type="file" accept=".csv,.tsv,.xlsx" aria-describedby="after-hint"></label>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="rules-heading"><div class="section-heading"><h2 id="rules-heading"><span class="step">02</span> Set comparison rules</h2><span class="subtle">Explicit by design</span></div>
+        <div class="rule-grid"><div><label for="keys" class="field-label">Primary key columns <span class="optional">optional</span></label><input id="keys" type="text" placeholder="e.g. Customer ID, Invoice ID" autocomplete="off"><p class="help">Exact header names, separated by commas. Without keys, rows align by position.</p></div><label class="checkbox-rule" for="ignore-order"><input id="ignore-order" type="checkbox"><span><strong>Allow order changes</strong><span>Ignore row and column order. Without keys, only exact row multisets can establish equality.</span></span></label></div>
+        <details class="policy-details"><summary>Advanced policy <span>Parsing, column types, dates, mapping &amp; more</span></summary><label class="field-label" for="policy">Policy JSON</label><textarea id="policy" rows="8" spellcheck="false">{
+  "keys": [],
+  "ignore_order": false
+}</textarea><p class="help">The controls above and JSON stay in sync. For text preservation use <code>"text_columns": ["Account"]</code>. Set input encoding or delimiter with <code>"before": {"encoding": "cp1252", "delimiter": ";"}</code> and <code>"after"</code>. Unknown or conflicting options are rejected.</p></details>
+        <div class="action-row"><p>Comparison reports describe observed data differences.<br>They do not establish which application caused them.</p><button class="primary" id="compare-button" type="submit">Compare files <span aria-hidden="true">→</span></button></div>
+      </section>
+    </form>
+    <div id="status" class="status" role="status" aria-live="polite">Connecting to your local workspace…</div>
+    <section id="results" class="results" aria-labelledby="results-heading" hidden>
+      <div class="results-heading"><div><p class="eyebrow">COMPARISON COMPLETE</p><h2 id="results-heading">Your evidence report</h2><p id="verdict-note"></p></div><span id="overall-verdict" class="verdict"></span></div>
+      <div class="stats" id="stats"></div>
+      <details class="panel metadata"><summary>Inputs, policy &amp; alignment assumptions</summary><pre id="metadata"></pre></details>
+      <div class="findings-toolbar"><div><label for="filter">Show findings</label><select id="filter"><option value="ALL">All categories</option><option value="CONFIRMED_LOSS">Confirmed loss</option><option value="SUSPECTED_CONVERSION">Suspected conversion</option><option value="EQUIVALENT">Equivalent</option><option value="UNKNOWN">Unknown</option></select><span id="finding-count" class="subtle"></span></div><div class="downloads" aria-label="Download report"><button id="download-json" type="button">JSON ↓</button><button id="download-html" type="button">HTML ↓</button><button id="download-csv" type="button">CSV ↓</button></div></div>
+      <div id="findings"></div>
+      <p class="export-note">Exports include original values and may contain private data. Save and share them with care.</p>
+    </section>
+    <footer><span>ImportProof <span class="subtle">/ v0.1.0</span></span><span>Local processing · Explicit assumptions · Original evidence</span></footer>
+  </main>
+</body>
+</html>

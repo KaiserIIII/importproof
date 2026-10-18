@@ -1,0 +1,115 @@
+{
+  "provenance": "Original nonprivate hand-authored controlled baseline inputs; not production migration data. Same bytes used for csv-diff/daff baselines.",
+  "cases": {
+    "leading-zeros": "CONFIRMED_LOSS",
+    "long-number": "CONFIRMED_LOSS",
+    "scientific": "CONFIRMED_LOSS",
+    "row-reorder": "CONFIRMED_LOSS",
+    "duplicate-key-hidden": "UNKNOWN",
+    "duplicate-header-hidden": "UNKNOWN",
+    "blank-quoted-empty": "CONFIRMED_LOSS",
+    "decimal-scale": "CONFIRMED_LOSS",
+    "decimal-value": "CONFIRMED_LOSS",
+    "date-representation": "CONFIRMED_LOSS",
+    "duplicate-row-count": "UNKNOWN",
+    "null-literal": "EQUIVALENT"
+  },
+  "files": [
+    {
+      "path": "leading-zeros/before.csv",
+      "sha256": "bfe61b828105afea82ded83c35b8c6bc25b259168142caff51f5b9bdb3d716bc"
+    },
+    {
+      "path": "leading-zeros/after.csv",
+      "sha256": "cb3d4db6670810a8e8ac61800ed6f82646be830ce195a61f63d50da388fa914f"
+    },
+    {
+      "path": "long-number/before.csv",
+      "sha256": "3897d88941ee25d98ece82f55e38504e2d19a526c4a5a5aadfb2b42beef61f45"
+    },
+    {
+      "path": "long-number/after.csv",
+      "sha256": "1b6573fa8fa01cbe9004b361b34d48d7cd78b5a4f13287a3ff0922f2e3f26845"
+    },
+    {
+      "path": "scientific/before.csv",
+      "sha256": "3897d88941ee25d98ece82f55e38504e2d19a526c4a5a5aadfb2b42beef61f45"
+    },
+    {
+      "path": "scientific/after.csv",
+      "sha256": "05d9723b053b0fdd0c06b1a332a6d1e00e0fe7429bd77ace90480d8b350dbe4c"
+    },
+    {
+      "path": "row-reorder/before.csv",
+      "sha256": "0b966fe7d6bc61e014593e88849414493cfaf5bec4750bb9bf0d3b6694e75c27"
+    },
+    {
+      "path": "row-reorder/after.csv",
+      "sha256": "b559cd783df7a773cfacf6103c53a8bf48d918f8945eb5ef9ecf41d27fdee0b8"
+    },
+    {
+      "path": "duplicate-key-hidden/before.csv",
+      "sha256": "dd91349c0c43d1e2b5367268abd8a99c207236486b236dfe88f72d5a7ea631eb"
+    },
+    {
+      "path": "duplicate-key-hidden/after.csv",
+      "sha256": "096f615f0d263a198df3dd3e3b841810afdbc996ed3f996b1ea72fc943c9467c"
+    },
+    {
+      "path": "duplicate-header-hidden/before.csv",
+      "sha256": "c88a411f9331e3c0b31f53bdf8b8a277e07b98d098efc6d522981a3bb8c001e5"
+    },
+    {
+      "path": "duplicate-header-hidden/after.csv",
+      "sha256": "e7913b6abd99a8adce0c4f8f0308955005819349e574ea998043b7ed6fd25c67"
+    },
+    {
+      "path": "blank-quoted-empty/before.csv",
+      "sha256": "b1709b9c79d9b0088ce05d0258433377a5474d3bc04b4d30c7e345c2f859efd9"
+    },
+    {
+      "path": "blank-quoted-empty/after.csv",
+      "sha256": "530658c2e958ad14b94f2bc263fb72c5e46b3a58191701f59ca8343ec023e2b4"
+    },
+    {
+      "path": "decimal-scale/before.csv",
+      "sha256": "bc0654076db9df1396c3a470cf879cdf017b54e8998823350ab5eeddce5cde07"
+    },
+    {
+      "path": "decimal-scale/after.csv",
+      "sha256": "0130955fb725e6a8a0be3986a12bfc50c367dffc55b3c2aff8091317d50d4f4e"
+    },
+    {
+      "path": "decimal-value/before.csv",
+      "sha256": "bc0654076db9df1396c3a470cf879cdf017b54e8998823350ab5eeddce5cde07"
+    },
+    {
+      "path": "decimal-value/after.csv",
+      "sha256": "8a34f58670f33efb884df0a11e36a0be6f9eca1b31bb48c153b734e72bae476a"
+    },
+    {
+      "path": "date-representation/before.csv",
+      "sha256": "8d707dba99fdd351d90b684e5cf2c75af328c1b95fbadbc4880ef8dee59ce967"
+    },
+    {
+      "path": "date-representation/after.csv",
+      "sha256": "dc5666e227deac8f7be083987871c4607c16d9a615813c216dc78821b564ecfd"
+    },
+    {
+      "path": "duplicate-row-count/before.csv",
+      "sha256": "e731bbe8fc02b51f9f58fe3591db56ea274b20873942037f34f92e89c7708e23"
+    },
+    {
+      "path": "duplicate-row-count/after.csv",
+      "sha256": "3900f57e02c84c96eb4fe5f296f9f0427670d822c7dcf5a5bd76e4877c7a117f"
+    },
+    {
+      "path": "null-literal/before.csv",
+      "sha256": "ef0bd2df69d48ebdae1ca50c847dd767e4d8802e250da813b069a21eae39e543"
+    },
+    {
+      "path": "null-literal/after.csv",
+      "sha256": "b63df5472831fa51a56781d2b553cb6f69e6c29d60a1314798804bda8d9e626f"
+    }
+  ]
+}

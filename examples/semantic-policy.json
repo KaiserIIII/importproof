@@ -1,0 +1,20 @@
+{
+  "keys": [
+    "id"
+  ],
+  "text_columns": [
+    "identifier"
+  ],
+  "numeric_columns": [
+    "amount"
+  ],
+  "date_columns": [
+    "when"
+  ],
+  "date_formats": [
+    "%Y-%m-%d",
+    "%d/%m/%Y"
+  ],
+  "trim_whitespace": true,
+  "unicode_normalization": "NFC"
+}
